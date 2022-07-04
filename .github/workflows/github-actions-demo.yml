@@ -39,4 +39,4 @@ jobs:
       - name: install prettier
         run: yarn add prettier
       - name: Check prettier
-        run: yarn format:check
+        run: yarn prettier --check 'src/**/*.(ts|scss|js)'
