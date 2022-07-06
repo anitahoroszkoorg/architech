@@ -28,7 +28,7 @@ function LandingPageComponent() {
       <Grid container direction="column" alignItems="center">
         <Grid item xs={5}>
           <Typography sx={{ color: "white", fontSize: "36px" }}>
-            Witamy w Bude-Exert{" "}
+            Witamy w Bu de-Exert{" "}
           </Typography>
         </Grid>
         <Grid item>
