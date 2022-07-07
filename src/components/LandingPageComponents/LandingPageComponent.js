@@ -28,6 +28,7 @@ const useStyles = makeStyles({
     position: "absolute",
     height: 75,
   },
+  root: { backgroundColor: "#FBC02D" },
 });
 
 export default function LandingPageComponent() {
@@ -50,7 +51,7 @@ export default function LandingPageComponent() {
             </Typography>
           </Grid>
           <Grid item>
-            <Button contained lpbutton>
+            <Button variant="lpbutton">
               <Typography variant="button">Zarejestruj się</Typography>
             </Button>
           </Grid>
