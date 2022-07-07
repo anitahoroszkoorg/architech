@@ -9,7 +9,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

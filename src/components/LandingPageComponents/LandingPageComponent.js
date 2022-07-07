@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   typoStyle: {
     color: "white",
-    padding: 5,
   },
   gridStyle: {
     alignItems: "center",
@@ -39,21 +38,16 @@ export default function LandingPageComponent() {
       </Grid>
       <Grid container className={classes.background}>
         <Grid container direction="column" className={classes.gridStyle}>
-          <Grid item xs={5}>
-            <Typography variant="h4" className={classes.typoStyle}>
-              Witamy w Architech
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h6" className={classes.typoStyle}>
-              Zmieniamy polski przemysł budowlany
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Button variant="lpbutton">
-              <Typography variant="button">Zarejestruj się</Typography>
-            </Button>
-          </Grid>
+          <Typography variant="h4" className={classes.typoStyle}>
+            Witamy w Architech
+          </Typography>
+          <Typography variant="h6" className={classes.typoStyle}>
+            Zmieniamy polski przemysł budowlany
+          </Typography>
+
+          <Button variant="lpbutton">
+            <Typography variant="button">Zarejestruj się</Typography>
+          </Button>
         </Grid>
       </Grid>
     </>
