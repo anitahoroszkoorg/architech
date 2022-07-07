@@ -1,7 +1,6 @@
 import React from "react";
 import image from "../../images/imagegrid.png";
 import { Button, Typography } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Grid } from "@material-ui/core";
 import logo from "../../images/logo.png";
 import { makeStyles } from "@material-ui/core";
@@ -31,15 +30,7 @@ const useStyles = makeStyles({
   },
 });
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FBC02D",
-    },
-  },
-});
-
-function LandingPageComponent() {
+export default function LandingPageComponent() {
   const classes = useStyles();
   return (
     <>
@@ -59,19 +50,12 @@ function LandingPageComponent() {
             </Typography>
           </Grid>
           <Grid item>
-            <ThemeProvider theme={theme}>
-              <Button
-                variant="contained"
-                sx={{ color: "white", borderRadius: 70 }}
-              >
-                <Typography variant="button">Zarejestruj się</Typography>
-              </Button>
-            </ThemeProvider>
+            <Button contained lpbutton>
+              <Typography variant="button">Zarejestruj się</Typography>
+            </Button>
           </Grid>
         </Grid>
       </Grid>
     </>
   );
 }
-
-export default LandingPageComponent;
