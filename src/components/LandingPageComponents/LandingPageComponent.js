@@ -28,7 +28,6 @@ const useStyles = makeStyles({
     position: "absolute",
     height: 75,
   },
-  root: { backgroundColor: "#FBC02D" },
 });
 
 export default function LandingPageComponent() {
