@@ -28,6 +28,10 @@ const useStyles = makeStyles({
     position: "absolute",
     height: 75,
   },
+  link: {
+    textDecoration: "none",
+    color: "white",
+  },
 });
 
 export default function LandingPageComponent() {
@@ -46,7 +50,9 @@ export default function LandingPageComponent() {
             Zmieniamy polski przemysł budowlany
           </Typography>
           <Button variant="lpbutton">
-            <Typography variant="button">Zarejestruj się</Typography>
+            <Link to="form" className={classes.link}>
+              Zarejestruj się
+            </Link>
           </Button>
         </Grid>
       </Grid>

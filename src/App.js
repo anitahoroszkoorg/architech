@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/form" element={<FormPage />} />
+          <Route path="form" element={<FormPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
