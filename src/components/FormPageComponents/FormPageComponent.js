@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     width: "100%",
     height: "60vh",
   },
-}); 
+});
 
 function FormPageComponent() {
   const classes = useStyles();
