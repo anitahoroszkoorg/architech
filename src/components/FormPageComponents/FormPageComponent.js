@@ -1,8 +1,7 @@
 import React from "react";
 import form from "../../images/form.jpg";
 import { makeStyles } from "@material-ui/core";
-// import ResponsiveAppBar from "./ResponsiveMenuAppBar";
-import NewAppBar from "./NewAppBar";
+import AppBar from "../AppBarComponents/ResponsiveAppBar";
 const useStyles = makeStyles({
   imgStyle: {
     width: "100%",
@@ -14,7 +13,7 @@ function FormPageComponent() {
   const classes = useStyles();
   return (
     <>
-      <NewAppBar color="secondary" />
+      <AppBar color="secondary" />
       <img src={form} className={classes.imgStyle} />
     </>
   );

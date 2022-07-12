@@ -12,13 +12,12 @@ const pages = [
   "Dokumenty",
 ];
 
-const NavMenuComponent = () => {
+const NavMenu = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -63,4 +62,4 @@ const NavMenuComponent = () => {
     </>
   );
 };
-export default NavMenuComponent;
+export default NavMenu;
