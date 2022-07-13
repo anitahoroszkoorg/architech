@@ -1,8 +1,8 @@
-const Pages = [
+const pages = [
   "Ankieta kwalifikacyjna",
   "Kodeks Kontrahenta",
   "Katalog wymagań",
   "Dokumenty",
 ];
 
-export default Pages;
+export default pages;

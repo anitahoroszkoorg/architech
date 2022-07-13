@@ -8,46 +8,42 @@ import NavMenu from "./NavMenu";
 
 const SmallAppBar = () => {
   return (
-    <AppBar position="sticky" color="secondary">
-      <Grid container flexDirection="row">
-        <Toolbar>
-          <Grid item xs={2}>
-            <Logo />
-          </Grid>
-          <Grid container justifyContent="flex-end">
-            <NavMenu />
-          </Grid>
-        </Toolbar>
-      </Grid>
-    </AppBar>
+    <Grid container flexDirection="row">
+      <Toolbar>
+        <Grid item xs={2}>
+          <Logo />
+        </Grid>
+        <Grid container justifyContent="flex-end">
+          <NavMenu />
+        </Grid>
+      </Toolbar>
+    </Grid>
   );
 };
 const LargeAppBar = () => {
   return (
-    <AppBar position="sticky" color="secondary">
-      <Grid container direction="row" alignItems="center" test-id="xd">
-        <Toolbar>
-          <Grid item xs={2}>
-            <Logo />
-          </Grid>
-          <Grid container justifyContent="flex-end">
-            <PageList sx={{ display: "flex" }} />
-          </Grid>
-        </Toolbar>
-      </Grid>
-    </AppBar>
+    <Grid container direction="row" alignItems="center">
+      <Toolbar>
+        <Grid item xs={2}>
+          <Logo />
+        </Grid>
+        <Grid container justifyContent="flex-end">
+          <PageList sx={{ display: "flex" }} />
+        </Grid>
+      </Toolbar>
+    </Grid>
   );
 };
 const ResponsiveAppBar = () => {
   return (
-    <>
+    <AppBar position="sticky" color="secondary">
       <Grid sx={{ display: { xs: "flex", md: "none" } }}>
         <SmallAppBar />
       </Grid>
       <Grid sx={{ display: { xs: "none", md: "flex" } }}>
         <LargeAppBar />
       </Grid>
-    </>
+    </AppBar>
   );
 };
 export default ResponsiveAppBar;

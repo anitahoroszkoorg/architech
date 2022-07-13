@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Pages from "./Pages";
+import pages from "./pages";
 
 const NavMenu = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -43,7 +43,7 @@ const NavMenu = () => {
         open={Boolean(anchorElNav)}
         onClose={handleCloseNavMenu}
       >
-        {Pages.map((page) => (
+        {pages.map((page) => (
           <MenuItem key={page} onClick={handleCloseNavMenu}>
             <Typography textAlign="center">{page}</Typography>
           </MenuItem>
