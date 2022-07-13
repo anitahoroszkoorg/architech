@@ -22,7 +22,11 @@ const theme = createTheme({
       main: "#FBC02D",
     },
     secondary: {
-      main: "#d32f2f",
+      main: "#FFFFFF",
+      light: "#495057",
+    },
+    appbar: {
+      main: "#000000",
     },
   },
 });

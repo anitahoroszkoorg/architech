@@ -4,6 +4,7 @@ import { Button, Typography } from "@mui/material";
 import { Grid } from "@material-ui/core";
 import logo from "../../images/logo.png";
 import { makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   typoStyle: {
@@ -27,6 +28,10 @@ const useStyles = makeStyles({
     position: "absolute",
     height: 75,
   },
+  link: {
+    textDecoration: "none",
+    color: "white",
+  },
 });
 
 export default function LandingPageComponent() {
@@ -44,9 +49,10 @@ export default function LandingPageComponent() {
           <Typography variant="h6" className={classes.typoStyle}>
             Zmieniamy polski przemysł budowlany
           </Typography>
-
           <Button variant="lpbutton">
-            <Typography variant="button">Zarejestruj się</Typography>
+            <Link to="form" className={classes.link}>
+              Zarejestruj się
+            </Link>
           </Button>
         </Grid>
       </Grid>
