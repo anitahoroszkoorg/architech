@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import pages from "./pages";
+import pages from "../../const";
 
 const NavMenu = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

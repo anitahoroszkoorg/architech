@@ -28,7 +28,7 @@ const LargeAppBar = () => {
           <Logo />
         </Grid>
         <Grid container justifyContent="flex-end">
-          <PageList sx={{ display: "flex" }} />
+          <PageList />
         </Grid>
       </Toolbar>
     </Grid>
