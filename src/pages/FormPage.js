@@ -1,7 +1,7 @@
 import React from "react";
-import FormPageComponent from "../components/FormPageComponents/FormPageComponent";
+import Form from "../components/Form/Form";
 function FormPage() {
-  return <FormPageComponent />;
+  return <Form />;
 }
 
 export default FormPage;
