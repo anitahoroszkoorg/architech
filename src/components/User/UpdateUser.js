@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +30,7 @@ function UpdateUser() {
           age: "",
           is_active: true,
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values) => {
           fetch(`http://localhost:8000/users/${userId}`, {
             method: "PUT",
             headers: {

@@ -29,6 +29,9 @@
     "lint": "eslint src/ --ext .js,.ts --fix"
   },
   "eslintConfig": {
+    "ignorePatterns": [
+      "backend/**"
+    ],
     "extends": [
       "react-app",
       "react-app/jest"
