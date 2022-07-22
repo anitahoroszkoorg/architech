@@ -30,7 +30,7 @@
   },
   "eslintConfig": {
     "ignorePatterns": [
-      "backend/**"
+      "backend/*"
     ],
     "extends": [
       "react-app",
