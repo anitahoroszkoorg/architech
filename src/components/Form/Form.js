@@ -1,23 +1,23 @@
 import React from "react";
+import ResponsiveAppBar from "../AppBar/ResponsiveAppBar";
+import FormContainer from "./FormContainer";
 import form from "../../images/form.jpg";
-import { makeStyles } from "@material-ui/core";
-import ResponsiveAppBar from "../AppBarComponents/ResponsiveAppBar";
-
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   imgStyle: {
-    width: "100%",
     height: "40vh",
+    width: "100%",
   },
 });
-
-function FormPageComponent() {
+function Form() {
   const classes = useStyles();
   return (
     <>
-      <ResponsiveAppBar color="secondary" />
+      <ResponsiveAppBar />
       <img src={form} className={classes.imgStyle} />
+      <FormContainer />
     </>
   );
 }
 
-export default FormPageComponent;
+export default Form;

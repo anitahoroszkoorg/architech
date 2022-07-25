@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  imgStyle: {
+  logoStyle: {
     width: "100%",
     maxWidth: "150%",
     padding: 1,
@@ -15,7 +15,7 @@ const Logo = () => {
 
   return (
     <Link to="/">
-      <img src={logo} className={classes.imgStyle} alt="logo" />
+      <img src={logo} className={classes.logoStyle} alt="logo" />
     </Link>
   );
 };
