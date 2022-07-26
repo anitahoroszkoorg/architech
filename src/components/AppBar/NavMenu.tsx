@@ -7,9 +7,11 @@ import MenuItem from "@mui/material/MenuItem";
 import { pages } from "../../const";
 
 const NavMenu = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
 
-  const handleOpenNavMenu = (event: { currentTarget: any }) => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
