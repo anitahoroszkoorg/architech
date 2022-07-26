@@ -1,4 +1,3 @@
-import React from "react";
 import ResponsiveAppBar from "../AppBar/ResponsiveAppBar";
 import FormContainer from "./FormContainer";
 import form from "../../images/form.jpg";

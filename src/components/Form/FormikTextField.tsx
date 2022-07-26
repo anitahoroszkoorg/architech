@@ -1,8 +1,8 @@
-import React from "react";
 import { useField } from "formik";
 import TextField from "@mui/material/TextField";
+import { IFieldProps } from "./types";
 
-function FormikTextField(props) {
+function FormikTextField(props: IFieldProps) {
   const [field] = useField(props.name);
 
   return (

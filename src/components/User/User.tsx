@@ -1,8 +1,13 @@
-import React from "react";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
+import { IUser } from "../Form/types";
 
-function User({ user, setUsers, users }) {
+interface IProps {
+  user: IUser;
+  users: IUser[];
+  setUsers: (users: IUser[]) => void;
+}
+function User({ user, setUsers, users }: IProps) {
   return (
     <>
       <Grid xs={2}>
@@ -20,7 +25,7 @@ function User({ user, setUsers, users }) {
               method: "DELETE",
             }).then((response) => {
               if (response.ok) {
-                setUsers(users.filter((u) => u.id != user.id));
+                setUsers(users.filter((user) => user.id != user.id));
                 return response.json();
               } else {
                 return Promise.reject(response.status);

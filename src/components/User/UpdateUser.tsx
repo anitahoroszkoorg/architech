@@ -1,12 +1,11 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
+import { IUser } from "../Form/types";
 function UpdateUser() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState<IUser | null>(null);
   const { userId } = useParams();
   const navigate = useNavigate();
 
@@ -51,29 +50,33 @@ function UpdateUser() {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Grid xs={12}>
-              <Field
-                type="text"
-                name="first_name"
-                placeholder={user.first_name}
-              />
-            </Grid>
-            <Grid xs={12}>
-              <Field
-                type="text"
-                name="last_name"
-                placeholder={user.last_name}
-              />
-            </Grid>
-            <Grid xs={12}>
-              <Field type="text" name="city" placeholder={user.city} />
-            </Grid>
-            <Grid xs={12}>
-              <Field type="text" name="age" placeholder={user.age} />
-            </Grid>
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
+            {user ? (
+              <>
+                <Grid xs={12}>
+                  <Field
+                    type="text"
+                    name="first_name"
+                    placeholder={user.first_name}
+                  />
+                </Grid>
+                <Grid xs={12}>
+                  <Field
+                    type="text"
+                    name="last_name"
+                    placeholder={user.last_name}
+                  />
+                </Grid>
+                <Grid xs={12}>
+                  <Field type="text" name="city" placeholder={user.city} />
+                </Grid>
+                <Grid xs={12}>
+                  <Field type="text" name="age" placeholder={user.age} />
+                </Grid>
+                <button type="submit" disabled={isSubmitting}>
+                  Submit
+                </button>
+              </>
+            ) : null}
           </Form>
         )}
       </Formik>

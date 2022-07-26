@@ -9,7 +9,7 @@ import { pages } from "../../const";
 const NavMenu = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = (event: { currentTarget: any }) => {
     setAnchorElNav(event.currentTarget);
   };
 

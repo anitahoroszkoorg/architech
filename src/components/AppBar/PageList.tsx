@@ -1,4 +1,3 @@
-import * as React from "react";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import { pages } from "../../const";
@@ -8,9 +7,7 @@ const PageList = () => {
     <>
       {pages.map((page) => (
         <Grid item xs={2}>
-          <Typography variant="subtitle2" inline>
-            {page}
-          </Typography>
+          <Typography>{page}</Typography>
         </Grid>
       ))}
     </>
