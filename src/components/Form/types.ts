@@ -1,6 +1,3 @@
-export interface CurrentFormProps {
-  state: IState;
-}
 export interface IState {
   step: number;
   companyName: string;

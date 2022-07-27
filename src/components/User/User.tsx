@@ -1,7 +1,6 @@
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import { IUser } from "../Form/types";
-
 interface IProps {
   user: IUser;
   users: IUser[];

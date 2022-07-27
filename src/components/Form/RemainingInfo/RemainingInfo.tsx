@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { fieldsConfig } from "../../../const";
+import { fieldsConfig } from "const";
 import TextFieldList from "../TextFieldList";
 
 const RemainingInfo = () => {

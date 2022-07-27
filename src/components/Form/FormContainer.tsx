@@ -5,8 +5,13 @@ import PrimaryInfo from "./PrimaryInfo/PrimaryInfo";
 import { Grid } from "@mui/material";
 import ButtonContainer from "./FormButton/ButtonContainer";
 import ProgressPanel from "./ProgressPanel";
-import { CurrentFormProps, IState } from "./types";
-const CurrentForm = ({ state }: CurrentFormProps) => {
+import { IState } from "./types";
+
+interface IProps {
+  state: IState;
+}
+
+const CurrentForm = ({ state }: IProps) => {
   switch (state.step) {
     case 1:
       return <PrimaryInfo />;
@@ -55,6 +60,7 @@ function FormContainer() {
           initialValues={state}
           onSubmit={() => {
             console.log("submit");
+            //temporary submit method
           }}
         >
           {() => (

@@ -4,6 +4,7 @@ import { Formik, Form, Field } from "formik";
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../Form/types";
+
 function UpdateUser() {
   const [user, setUser] = useState<IUser | null>(null);
   const { userId } = useParams();

@@ -12,7 +12,6 @@ function ButtonContainer({ safeSetState, state }: IProps) {
 
   const changeStep = (stepChange: number) => {
     safeSetState({ step: state.step + stepChange });
-    safeSetState({ email: "state.step + stepChange" });
   };
   return (
     <div>

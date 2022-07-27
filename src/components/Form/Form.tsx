@@ -1,6 +1,6 @@
 import ResponsiveAppBar from "../AppBar/ResponsiveAppBar";
 import FormContainer from "./FormContainer";
-import form from "../../images/form.jpg";
+import form from "images/form.jpg";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   imgStyle: {
