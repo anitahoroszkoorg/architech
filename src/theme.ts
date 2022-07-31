@@ -4,7 +4,7 @@ const theme = createTheme({
   components: {
     MuiButton: {
       styleOverrides: {
-        lpbutton: {
+        contained: {
           backgroundColor: "#FBC02D",
           color: "#FFFFFF",
           fontSize: "1rem",
@@ -24,9 +24,6 @@ const theme = createTheme({
     secondary: {
       main: "#FFFFFF",
       light: "#495057",
-    },
-    appbar: {
-      main: "#000000",
     },
   },
 });

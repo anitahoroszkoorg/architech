@@ -1,12 +1,16 @@
-import React from "react";
 import FormButton from "./FormButton";
+import { IState } from "../types";
 
-function ButtonContainer({ safeSetState, state }) {
+interface IProps {
+  safeSetState: (stateUpdate: Partial<IState>) => void;
+  state: IState;
+}
+function ButtonContainer({ safeSetState, state }: IProps) {
   const shouldShowBackButton = () => state.step > 1 && state.step < 3;
 
   const shouldShowNextButton = () => state.step < 2;
 
-  const changeStep = (stepChange) => {
+  const changeStep = (stepChange: number) => {
     safeSetState({ step: state.step + stepChange });
   };
   return (

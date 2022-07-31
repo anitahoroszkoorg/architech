@@ -1,8 +1,7 @@
-import React from "react";
-import image from "../../images/imagegrid.png";
+import image from "images/imagegrid.png";
 import { Button, Typography } from "@mui/material";
 import { Grid } from "@material-ui/core";
-import logo from "../../images/logo.png";
+import logo from "images/logo.png";
 import { makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
@@ -18,7 +17,6 @@ const useStyles = makeStyles({
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     alignItems: "center",
-    direction: "row",
     backgroundImage: `url(${image})`,
     height: "100vh",
   },
@@ -49,7 +47,7 @@ export default function LandingPageComponent() {
           <Typography variant="h6" className={classes.typoStyle}>
             Zmieniamy polski przemysł budowlany
           </Typography>
-          <Button variant="lpbutton">
+          <Button variant="contained">
             <Link to="form" className={classes.link}>
               Zarejestruj się
             </Link>
