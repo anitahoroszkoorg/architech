@@ -6,6 +6,7 @@ import { Grid } from "@mui/material";
 import ButtonContainer from "./FormButton/ButtonContainer";
 import ProgressPanel from "./ProgressPanel";
 import { IState } from "./types";
+import Footer from "components/Footer/Footer";
 
 interface IProps {
   state: IState;
@@ -80,6 +81,7 @@ function FormContainer() {
           )}
         </Formik>
       </Grid>
+      <Footer />
     </>
   );
 }
