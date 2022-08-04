@@ -13,9 +13,45 @@ const theme = createTheme({
           },
           borderRadius: 70,
           marginTop: 15,
+          
         },
       },
     },
+    // MuiStepper: {
+    //   styleOverrides: {
+    //     root: {
+    //       fill: "#0C5089",
+    //       color: "#0C5089",
+    //       height: 50,
+    //     },
+    //   },
+    // },
+
+    // MuiStepIcon: {
+    //   styleOverrides: {
+    //     root: {
+    //       width: 14,
+    //       fill: "#0C5089",
+    //       color: "#0C5089",
+    //     },
+    //     text: {
+    //       fill: "#0C5089",
+    //       color: "#0C5089",
+    //     },
+
+    //     completed: {
+    //       fill: "#0C5089",
+    //       color: "#0C5089",
+    //     },
+    //   },
+    // },
+  //   MuiStepLabel: {
+  //     styleOverrides: {
+  //       labelContainer: {
+  //         color: "#0C5089",
+  //       },
+  //     },
+  //   },
   },
   palette: {
     primary: {
@@ -24,6 +60,9 @@ const theme = createTheme({
     secondary: {
       main: "#FFFFFF",
       light: "#495057",
+    },
+    info: {
+      main: "#0C5089",
     },
   },
 });

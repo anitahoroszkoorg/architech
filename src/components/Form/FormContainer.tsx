@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Formik } from "formik";
-import RemainingInfo from "./RemainingInfo/RemainingInfo";
-import PrimaryInfo from "./PrimaryInfo/PrimaryInfo";
+import RemainingInfo from "./RemainingInfo";
+import PrimaryInfo from "./PrimaryInfo";
 import { Grid } from "@mui/material";
 import ButtonContainer from "./FormButton/ButtonContainer";
-import ProgressPanel from "./ProgressPanel";
+import FormStepper from "./FormStepper";
 import { IState } from "./types";
+import MyStepper from "./MyStepper";
+import Documents from "./Documents";
+import Summary from "./Summary";
 
 interface IProps {
   state: IState;
@@ -17,6 +20,10 @@ const CurrentForm = ({ state }: IProps) => {
       return <PrimaryInfo />;
     case 2:
       return <RemainingInfo />;
+    case 3:
+      return <Documents />;
+    case 4:
+      return <Summary />;
     default:
       return <></>;
   }
@@ -67,13 +74,24 @@ function FormContainer() {
             <>
               <Grid container columnSpacing={5}>
                 <Grid item xs={3}>
-                  <ProgressPanel />
+                  {/* <MyStepper step={state.step}  /> */}
                 </Grid>
-                <Grid container xs={9}>
+                <Grid
+                  container
+                  xs={8}
+                  sx={{ display: { xs: "flex", md: "none" } }}
+                >
+                  <CurrentForm state={state} />
+                </Grid>
+                <Grid
+                  container
+                  xs={9}
+                  sx={{ display: { xs: "none", md: "flex" } }}
+                >
                   <CurrentForm state={state} />
                 </Grid>
               </Grid>
-              <Grid container xs={11} justifyContent="flex-end">
+              <Grid container xs={10} justifyContent="flex-end">
                 <ButtonContainer safeSetState={safeSetState} state={state} />
               </Grid>
             </>

@@ -8,7 +8,7 @@ function TextFieldList({ fieldList }: IProps) {
   return (
     <Grid container>
       {fieldList.map((field: { name: string; label: string }) => (
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <FormikTextField name={field.name} label={field.label} />
         </Grid>
       ))}
