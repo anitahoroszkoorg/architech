@@ -12,7 +12,7 @@ const stepNames = [
   "Podsumowanie",
 ];
 
-export default function MyStepper({ step }: IProps) {
+export default function FormStepper({ step }: IProps) {
   const activeStep = step - 1;
   return (
     <Stepper activeStep={activeStep} orientation="vertical" sx={{ margin: 7 }}>
