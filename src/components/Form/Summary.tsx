@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Summary() {
-  return (
-    <div>Podsumowanie</div>
-  )
+  return <div>Podsumowanie</div>;
 }
 
-export default Summary
+export default Summary;

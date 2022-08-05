@@ -4,7 +4,6 @@ import RemainingInfo from "./RemainingInfo";
 import PrimaryInfo from "./PrimaryInfo";
 import { Grid } from "@mui/material";
 import ButtonContainer from "./FormButton/ButtonContainer";
-import FormStepper from "./FormStepper";
 import { IState } from "./types";
 import MyStepper from "./MyStepper";
 import Documents from "./Documents";
@@ -74,7 +73,7 @@ function FormContainer() {
             <>
               <Grid container columnSpacing={5}>
                 <Grid item xs={3}>
-                  {/* <MyStepper step={state.step}  /> */}
+                  <MyStepper step={state.step} />
                 </Grid>
                 <Grid
                   container

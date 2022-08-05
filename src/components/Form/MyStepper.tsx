@@ -1,12 +1,12 @@
-import { Box } from "@mui/system";
-import CustomIcon from "./CustomIcon";
-
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
 interface IProps {
   step: number;
 }
-
 const stepNames = [
-  "Dane Twojej Firmy",
+  "Dane Twojej firmy",
   "Pozostałe informacje",
   "Wymagane dokumenty",
   "Podsumowanie",
@@ -15,13 +15,12 @@ const stepNames = [
 export default function MyStepper({ step }: IProps) {
   const activeStep = step - 1;
   return (
-    <div>
+    <Stepper activeStep={activeStep} orientation="vertical" sx={{ margin: 7 }}>
       {stepNames.map((stepName) => (
-        <Box>
-          {stepName}
-          <CustomIcon />
-        </Box>
+        <Step key={stepName}>
+          <StepLabel>{stepName}</StepLabel>
+        </Step>
       ))}
-    </div>
+    </Stepper>
   );
 }

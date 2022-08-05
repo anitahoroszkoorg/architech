@@ -13,56 +13,24 @@ const theme = createTheme({
           },
           borderRadius: 70,
           marginTop: 15,
-          
         },
       },
     },
-    // MuiStepper: {
-    //   styleOverrides: {
-    //     root: {
-    //       fill: "#0C5089",
-    //       color: "#0C5089",
-    //       height: 50,
-    //     },
-    //   },
-    // },
-
-    // MuiStepIcon: {
-    //   styleOverrides: {
-    //     root: {
-    //       width: 14,
-    //       fill: "#0C5089",
-    //       color: "#0C5089",
-    //     },
-    //     text: {
-    //       fill: "#0C5089",
-    //       color: "#0C5089",
-    //     },
-
-    //     completed: {
-    //       fill: "#0C5089",
-    //       color: "#0C5089",
-    //     },
-    //   },
-    // },
-  //   MuiStepLabel: {
-  //     styleOverrides: {
-  //       labelContainer: {
-  //         color: "#0C5089",
-  //       },
-  //     },
-  //   },
+    MuiStepConnector: {
+      styleOverrides: {
+        root: {
+          orientation: "vertical",
+          margin: 7,
+        },
+      },
+    },
   },
   palette: {
     primary: {
-      main: "#FBC02D",
+      main: "#0C5089",
     },
     secondary: {
       main: "#FFFFFF",
-      light: "#495057",
-    },
-    info: {
-      main: "#0C5089",
     },
   },
 });
