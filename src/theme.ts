@@ -13,6 +13,14 @@ const theme = createTheme({
           },
           borderRadius: 70,
           marginTop: 15,
+          marginBottom: 7,
+        },
+      },
+    },
+    MuiBottomNavigation: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#0C5089",
         },
       },
     },
@@ -25,6 +33,7 @@ const theme = createTheme({
       },
     },
   },
+
   palette: {
     primary: {
       main: "#0C5089",

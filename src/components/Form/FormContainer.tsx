@@ -8,6 +8,7 @@ import { IState } from "./types";
 import FormStepper from "./FormStepper";
 import Documents from "./Documents";
 import Summary from "./Summary";
+import Footer from "components/Footer/Footer";
 
 interface IProps {
   state: IState;
@@ -97,6 +98,7 @@ function FormContainer() {
           )}
         </Formik>
       </Grid>
+      <Footer />
     </>
   );
 }
