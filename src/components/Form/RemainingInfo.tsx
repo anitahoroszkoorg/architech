@@ -9,7 +9,7 @@ const RemainingInfo = () => {
         variant="h6"
         gutterBottom
         component="div"
-        sx={{ color: "#0C5089" }}
+        sx={{ color: "primary.main" }}
       >
         Pozostałe informacje
       </Typography>
