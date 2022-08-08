@@ -24,15 +24,22 @@ const theme = createTheme({
         },
       },
     },
+    MuiStepConnector: {
+      styleOverrides: {
+        root: {
+          orientation: "vertical",
+          margin: 7,
+        },
+      },
+    },
   },
 
   palette: {
     primary: {
-      main: "#FBC02D",
+      main: "#0C5089",
     },
     secondary: {
       main: "#FFFFFF",
-      light: "#495057",
     },
   },
 });

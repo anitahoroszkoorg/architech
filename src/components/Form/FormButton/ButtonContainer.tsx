@@ -6,9 +6,9 @@ interface IProps {
   state: IState;
 }
 function ButtonContainer({ safeSetState, state }: IProps) {
-  const shouldShowBackButton = () => state.step > 1 && state.step < 3;
+  const shouldShowBackButton = () => state.step > 1 && state.step < 5;
 
-  const shouldShowNextButton = () => state.step < 2;
+  const shouldShowNextButton = () => state.step < 4;
 
   const changeStep = (stepChange: number) => {
     safeSetState({ step: state.step + stepChange });
