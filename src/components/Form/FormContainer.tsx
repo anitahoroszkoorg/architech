@@ -98,7 +98,7 @@ function FormContainer() {
           )}
         </Formik>
       </Grid>
-      <Footer />
+      {state.step === 4 ? <Footer /> : null}
     </>
   );
 }
