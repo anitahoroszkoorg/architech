@@ -1,11 +1,38 @@
-## Development
+# Budimex (Architech) application for filling out forms
 
-In the project directory, you should run:
+I designed this project in Figma for a company that needed better UX for their application process for potential contractors. I've created a more user friendly layout for filling out complicated forms. I've decided to develop it myself in React with Typescript using tools such as Material UI and Formik.
 
-### `yarn install`
+## Authors
 
-### `yarn prepare`
+- [@anitavictoria](https://github.com/anitavictoria)
 
-## Run
+## Preview
 
-### `yarn start`
+<img width="350" alt="budimex3" src="https://user-images.githubusercontent.com/95635795/182837585-c49e2e6a-697b-4993-be68-a24bf5ba216a.png">
+<img width="350" alt="readme budimex" src="https://user-images.githubusercontent.com/95635795/182818430-0dbea71f-89ee-4d52-ae79-6e3f58309d30.png">
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/anitahoroszko/budimex
+```
+
+Go to the project directory
+
+```bash
+  cd budimex
+```
+
+Install dependencies
+
+```bash
+  yarn install
+```
+
+Start the server
+
+```bash
+  yarn start
+```
