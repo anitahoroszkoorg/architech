@@ -19,6 +19,7 @@ def delete_user(db: Session, user_id):
     db.query(models.User).filter(models.User.id == user_id).delete()
     db.commit()
 
+
 def create_user(db: Session, user: schemas.User):
     db_user = models.User(
         first_name=user.first_name,
@@ -43,3 +44,18 @@ def update(db: Session, user: schemas.User, user_id):
     return a_user
 
 
+def get_nip_info_from_db(db: Session, nip: str):
+    try:
+        return db.query(models.NipInfo).filter(models.NipInfo.nip == nip).first().result
+    except Exception:
+        return None
+
+
+def save_gus_response(db, nip, result):
+    nip_info = models.NipInfo(
+        nip=nip,
+        result=result
+    )
+    db.add(nip_info)
+    db.commit()
+    db.refresh(nip_info)

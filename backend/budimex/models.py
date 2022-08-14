@@ -1,6 +1,14 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from .database import Base
+from sqlalchemy.dialects.postgresql import JSONB
+
+class NipInfo(Base):
+    __tablename__ = "nipinfo"
+
+    nip = Column(String, primary_key=True)
+    result = Column(JSONB)
+
 
 class User(Base):
     __tablename__ = "users"
