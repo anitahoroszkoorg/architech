@@ -1,11 +1,11 @@
-from http.client import HTTPException
-
+from dotenv import load_dotenv
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 from budimex import crud, schemas, models
 from budimex.database import SessionLocal, engine
-from fastapi.middleware.cors import CORSMiddleware
+from budimex.gus_client import fetch_data_from_gus
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -30,6 +30,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+load_dotenv()
+
 
 @app.get("/users/", response_model=list[schemas.UserResponse])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
@@ -51,6 +53,23 @@ async def update_user(user_id: int, user: schemas.UserUpdate, db: Session = Depe
 async def update_user(user_id: int, db: Session = Depends(get_db)):
     return crud.delete_user(db=db, user_id=user_id)
 
+
 @app.get("/users/{user_id}", response_model=schemas.UserResponse)
-async def get_single_user(user_id: int,  db: Session = Depends(get_db)):
-    return crud.get_single_user(db=db,  user_id=user_id)
+async def get_single_user(user_id: int, db: Session = Depends(get_db)):
+    return crud.get_single_user(db=db, user_id=user_id)
+
+
+@app.get("/supplier/")
+async def get_single_user():
+    return ["Producent", "Dystrybutor/Hurtownia", "Podwykonawca", "Dostawca usług Sprzętowco-Transportowych"]
+
+
+# {'nip': '1231231'}
+
+@app.post("/nip-info/")
+def create_user(nip: schemas.Nip, db: Session = Depends(get_db)):
+    nip_info = crud.get_nip_info_from_db(db=db, nip=nip.nip)
+    if not nip_info:
+        nip_info = fetch_data_from_gus(db=db, nip=nip.nip)
+
+    return nip_info
