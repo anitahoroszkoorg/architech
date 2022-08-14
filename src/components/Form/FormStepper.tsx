@@ -13,7 +13,7 @@ const stepNames = [
 
 export default function FormStepper({ step }: IProps) {
   return (
-    <Stepper activeStep={step - 1} orientation="vertical" sx={{ margin: 7 }}>
+    <Stepper activeStep={step - 1} orientation="vertical" sx={{ ml: 7, mt: 2 }}>
       {stepNames.map((stepName) => (
         <Step key={stepName}>
           <StepLabel>{stepName}</StepLabel>

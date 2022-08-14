@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Formik } from "formik";
 import RemainingInfo from "./RemainingInfo";
-import PrimaryInfo from "./PrimaryInfo";
+import PrimaryInfo from "./PrimaryInfo/PrimaryInfo";
 import { Grid } from "@mui/material";
 import ButtonContainer from "./FormButton/ButtonContainer";
 import { IState } from "./types";
@@ -9,7 +9,8 @@ import FormStepper from "./FormStepper";
 import Documents from "./Documents";
 import Summary from "./Summary";
 import Footer from "components/Footer/Footer";
-
+import SplitScreen from "components/SplitScreen";
+import ContactInfo from "./PrimaryInfo/ContactInfo";
 interface IProps {
   state: IState;
 }
@@ -17,7 +18,14 @@ interface IProps {
 const CurrentForm = ({ state }: IProps) => {
   switch (state.step) {
     case 1:
-      return <PrimaryInfo />;
+      return (
+        <>
+          <PrimaryInfo />
+          <SplitScreen>
+            <ContactInfo />
+          </SplitScreen>
+        </>
+      );
     case 2:
       return <RemainingInfo />;
     case 3:
@@ -98,7 +106,6 @@ function FormContainer() {
           )}
         </Formik>
       </Grid>
-      {state.step === 4 ? <Footer /> : null}
     </>
   );
 }

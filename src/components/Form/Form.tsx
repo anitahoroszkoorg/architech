@@ -2,10 +2,13 @@ import ResponsiveAppBar from "../AppBar/ResponsiveAppBar";
 import FormContainer from "./FormContainer";
 import form from "images/form.jpg";
 import { makeStyles } from "@mui/styles";
+import SplitScreen from "components/SplitScreen";
 const useStyles = makeStyles({
   imgStyle: {
     height: "40vh",
     width: "100%",
+    margin: 0,
+    padding: 0,
   },
 });
 function Form() {
@@ -14,7 +17,7 @@ function Form() {
     <>
       <ResponsiveAppBar />
       <img src={form} className={classes.imgStyle} />
-      <FormContainer />
+        <FormContainer />
     </>
   );
 }
