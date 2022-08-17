@@ -5,7 +5,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import DropBox from "components/DocumentsUpload/DropBox";
+import DropBox from "components/Form/Documents/DropBox";
 
 const documents = [
   "Referencje",
@@ -16,17 +16,17 @@ const documents = [
 
 function Documents() {
   return (
-    <Grid container flexDirection="column">
+    <>
       <Typography
         variant="h6"
         gutterBottom
         component="div"
-        sx={{ color: "primary.main" }}
+        sx={{ color: "primary.main", marginTop: 2}}
       >
         Wymagane dokumenty
       </Typography>
       <Grid container>
-        <Grid item sx={{ marginTop: 5 }}>
+        <Grid item xs={5} sx={{ marginTop: 5 }}>
           <FormGroup>
             {documents.map((document) => (
               <>
@@ -39,13 +39,11 @@ function Documents() {
             ))}
           </FormGroup>
         </Grid>
-        <Grid item sx={{ marginTop: 5 }}>
+        <Grid item xs={1} sx={{ marginTop: 5 }}>
           <DropBox />
         </Grid>
       </Grid>
-      <Grid container>
-      </Grid>
-    </Grid>
+    </>
   );
 }
 

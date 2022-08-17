@@ -1,10 +1,11 @@
 import { Typography } from "@mui/material";
 import { fieldsConfig } from "const";
+import WhiteContainer from "containers/WhiteContainer";
 import TextFieldList from "./TextFieldList";
 
-const RemainingInfo = () => {
+const RemainingInfo = ({ step }: any) => {
   return (
-    <>
+    <WhiteContainer step={step}>
       <Typography
         variant="h6"
         gutterBottom
@@ -14,7 +15,7 @@ const RemainingInfo = () => {
         Pozostałe informacje
       </Typography>
       <TextFieldList fieldList={fieldsConfig.commercialFields} />
-    </>
+    </WhiteContainer>
   );
 };
 

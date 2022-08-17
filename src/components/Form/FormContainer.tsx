@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Formik } from "formik";
 import RemainingInfo from "./RemainingInfo";
-import PrimaryInfo from "./PrimaryInfo/PrimaryInfo";
 import { Grid } from "@mui/material";
 import ButtonContainer from "./FormButton/ButtonContainer";
 import { IState } from "./types";
@@ -10,28 +9,20 @@ import Documents from "./Documents";
 import Summary from "./Summary";
 import Footer from "components/Footer/Footer";
 import SplitScreen from "components/SplitScreen";
-import ContactInfo from "./PrimaryInfo/ContactInfo";
+import PrimaryInfo from "./PrimaryInfo";
 interface IProps {
   state: IState;
 }
-
-const CurrentForm = ({ state }: IProps) => {
+export const CurrentForm = ({ state }: IProps): JSX.Element => {
   switch (state.step) {
     case 1:
-      return (
-        <>
-          <PrimaryInfo />
-          <SplitScreen>
-            <ContactInfo />
-          </SplitScreen>
-        </>
-      );
+      return <PrimaryInfo step={state.step}  />;
     case 2:
-      return <RemainingInfo />;
+      return <RemainingInfo step={state.step} />;
     case 3:
-      return <Documents />;
+      return <Documents step={state.step} />;
     case 4:
-      return <Summary />;
+      return <Summary step={state.step} />;
     default:
       return <></>;
   }
@@ -80,27 +71,8 @@ function FormContainer() {
         >
           {() => (
             <>
-              <Grid container columnSpacing={5}>
-                <Grid item xs={3}>
-                  <FormStepper step={state.step} />
-                </Grid>
-                <Grid
-                  container
-                  xs={8}
-                  sx={{ display: { xs: "flex", md: "none" } }}
-                >
-                  <CurrentForm state={state} />
-                </Grid>
-                <Grid
-                  container
-                  xs={9}
-                  sx={{ display: { xs: "none", md: "flex" } }}
-                >
-                  <CurrentForm state={state} />
-                </Grid>
-              </Grid>
-              <Grid container xs={10} justifyContent="flex-end">
-                <ButtonContainer safeSetState={safeSetState} state={state} />
+              <Grid container>
+                <CurrentForm state={state} />
               </Grid>
             </>
           )}

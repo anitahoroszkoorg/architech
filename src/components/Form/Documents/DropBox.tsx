@@ -15,11 +15,12 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor: "white",
+    marginBottom: 50
   },
 });
 function DropBox() {
   const classes = useStyles();
-  const [files, setFiles] = useState([])
   const onDrop = useCallback((acceptedFiles: any) => {
     console.log(acceptedFiles);
   }, []);
