@@ -2,27 +2,24 @@ import { useState } from "react";
 import { Formik } from "formik";
 import RemainingInfo from "./RemainingInfo";
 import { Grid } from "@mui/material";
-import ButtonContainer from "./FormButton/ButtonContainer";
 import { IState } from "./types";
-import FormStepper from "./FormStepper";
 import Documents from "./Documents";
 import Summary from "./Summary";
-import Footer from "components/Footer/Footer";
-import SplitScreen from "components/SplitScreen";
 import PrimaryInfo from "./PrimaryInfo";
 interface IProps {
   state: IState;
+  safeSetState: (stateUpdate: Partial<IState>) => void;
 }
-export const CurrentForm = ({ state }: IProps): JSX.Element => {
+export const CurrentForm = ({ state, safeSetState }: IProps): JSX.Element => {
   switch (state.step) {
     case 1:
-      return <PrimaryInfo step={state.step}  />;
+      return <PrimaryInfo step={state.step} safeSetState={safeSetState} />;
     case 2:
-      return <RemainingInfo step={state.step} />;
+      return <RemainingInfo step={state.step} safeSetState={safeSetState} />;
     case 3:
-      return <Documents step={state.step} />;
+      return <Documents step={state.step} safeSetState={safeSetState} />;
     case 4:
-      return <Summary step={state.step} />;
+      return <Summary step={state.step} safeSetState={safeSetState} />;
     default:
       return <></>;
   }
@@ -72,7 +69,7 @@ function FormContainer() {
           {() => (
             <>
               <Grid container>
-                <CurrentForm state={state} />
+                <CurrentForm safeSetState={safeSetState} state={state} />
               </Grid>
             </>
           )}

@@ -3,15 +3,15 @@ import { IState } from "../types";
 
 interface IProps {
   safeSetState: (stateUpdate: Partial<IState>) => void;
-  state: IState;
+  step: number;
 }
-function ButtonContainer({ safeSetState, state }: IProps) {
-  const shouldShowBackButton = () => state.step > 1 && state.step < 5;
+function ButtonContainer({ safeSetState, step }: IProps) {
+  const shouldShowBackButton = () => step > 1 && step < 5;
 
-  const shouldShowNextButton = () => state.step < 4;
+  const shouldShowNextButton = () => step < 4;
 
   const changeStep = (stepChange: number) => {
-    safeSetState({ step: state.step + stepChange });
+    safeSetState({ step: step + stepChange });
   };
   return (
     <div>

@@ -4,14 +4,20 @@ import GreyContainer from "containers/GreyContainer";
 import Divider from "@mui/material/Divider";
 import ContactInfo from "./ContactInfo";
 import CompanyInfo from "./CompanyInfo.tsx";
+import { IState } from "../types";
 
-function PrimaryInfo({ step }: any) {
+interface IProps {
+  step: number;
+  safeSetState: (stateUpdate: Partial<IState>) => void;
+}
+
+function PrimaryInfo({ step, safeSetState }: IProps) {
   return (
     <>
       <WhiteContainer step={step}>
         <CompanyInfo />
       </WhiteContainer>
-      <GreyContainer isLast>
+      <GreyContainer step={step} safeSetState={safeSetState}>
         <ContactInfo />
       </GreyContainer>
     </>

@@ -4,14 +4,20 @@ import GreyContainer from "containers/GreyContainer";
 import Divider from "@mui/material/Divider";
 import Documents from "./Documents";
 import DownloadPdf from "./DownloadPdf";
+import { IState } from "../types";
 
-function DocumentsPage({ step }: any) {
+interface IProps {
+  step: number;
+  safeSetState: (stateUpdate: Partial<IState>) => void;
+}
+
+function DocumentsPage({ safeSetState, step }: IProps) {
   return (
     <>
       <WhiteContainer step={step}>
         <Documents />
       </WhiteContainer>
-      <GreyContainer>
+      <GreyContainer step={step} safeSetState={safeSetState}>
         <DownloadPdf />
       </GreyContainer>
     </>
