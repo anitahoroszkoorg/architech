@@ -5,8 +5,8 @@ import { IState } from "components/Form/types";
 
 interface IProps {
   step: number;
-  children: JSX.Element | JSX.Element[]
-  safeSetState: (stateUpdate: Partial<IState>) => void
+  children: JSX.Element | JSX.Element[];
+  safeSetState: (stateUpdate: Partial<IState>) => void;
 }
 
 const useStyles = makeStyles({

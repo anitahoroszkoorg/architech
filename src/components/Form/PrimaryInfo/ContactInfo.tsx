@@ -8,7 +8,7 @@ function ContactInfo() {
         variant="subtitle2"
         gutterBottom
         component="div"
-        sx={{ color: "#495057", fontWeight: "bold", mt:2 }}
+        sx={{ color: "#495057", fontWeight: "bold", mt: 2 }}
       >
         Dane Kontaktowe
       </Typography>

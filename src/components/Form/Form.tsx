@@ -16,7 +16,7 @@ function Form() {
     <>
       <ResponsiveAppBar />
       <img src={form} className={classes.imgStyle} />
-        <FormContainer />
+      <FormContainer />
     </>
   );
 }

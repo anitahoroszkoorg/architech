@@ -7,7 +7,7 @@ interface IProps {
   step: number;
   children: JSX.Element | JSX.Element[];
   safeSetState: (stateUpdate: Partial<IState>) => void;
-  isLast: boolean
+  isLast: boolean;
 }
 function WhiteContainer({ children, step, safeSetState, isLast }: IProps) {
   console.log(step);
@@ -20,8 +20,9 @@ function WhiteContainer({ children, step, safeSetState, isLast }: IProps) {
         {children}
       </Grid>
       <Grid container xs={10} justifyContent="flex-end">
-        {isLast ? <ButtonContainer safeSetState={safeSetState} step={step} /> : null}
-      
+        {isLast ? (
+          <ButtonContainer safeSetState={safeSetState} step={step} />
+        ) : null}
       </Grid>
     </Grid>
   );

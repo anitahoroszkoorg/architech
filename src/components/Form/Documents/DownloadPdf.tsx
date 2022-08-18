@@ -37,7 +37,9 @@ function DownloadPdf() {
       <Grid container>
         <Grid item xs={5} sx={{ padding: 1 }}>
           {documentSteps.map((step) => (
-            <Typography sx={{ color: "primary.main", mt: 1}}>{step}</Typography>
+            <Typography sx={{ color: "primary.main", mt: 1 }}>
+              {step}
+            </Typography>
           ))}
         </Grid>
         <Grid item xs={5}>

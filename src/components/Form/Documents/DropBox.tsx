@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: "white",
-    marginBottom: 50
+    marginBottom: 50,
   },
 });
 function DropBox() {

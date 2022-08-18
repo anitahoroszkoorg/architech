@@ -21,7 +21,7 @@ function Documents() {
         variant="h6"
         gutterBottom
         component="div"
-        sx={{ color: "primary.main", marginTop: 2}}
+        sx={{ color: "primary.main", marginTop: 2 }}
       >
         Wymagane dokumenty
       </Typography>

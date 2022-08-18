@@ -9,7 +9,7 @@ interface IProps {
   safeSetState: (stateUpdate: Partial<IState>) => void;
 }
 
-function DocumentsPage({ safeSetState, step}: IProps) {
+function DocumentsPage({ safeSetState, step }: IProps) {
   return (
     <>
       <WhiteContainer step={step} safeSetState={safeSetState} isLast={false}>
