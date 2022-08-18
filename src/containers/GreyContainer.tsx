@@ -5,7 +5,7 @@ import { IState } from "components/Form/types";
 
 interface IProps {
   step: number;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[]
   safeSetState: (stateUpdate: Partial<IState>) => void
 }
 
@@ -25,9 +25,9 @@ function GreyContainer({ children, safeSetState, step }: IProps) {
       <Grid item xs={3}></Grid>
       <Grid container xs={9} sx={{ display: { xs: "none", md: "flex" } }}>
         {children}
-      </Grid>{" "}
+      </Grid>
       <Grid container xs={10} justifyContent="flex-end">
-        <ButtonContainer safeSetState={safeSetState} step={step} />{" "}
+        <ButtonContainer safeSetState={safeSetState} step={step} />
       </Grid>
     </Grid>
   );

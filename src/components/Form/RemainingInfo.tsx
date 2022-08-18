@@ -2,10 +2,16 @@ import { Typography } from "@mui/material";
 import { fieldsConfig } from "const";
 import WhiteContainer from "containers/WhiteContainer";
 import TextFieldList from "./TextFieldList";
+import { IState } from "./types";
 
-const RemainingInfo = ({ step }: any) => {
+interface IProps {
+  step: number;
+  safeSetState: (stateUpdate: Partial<IState>) => void;
+}
+
+const RemainingInfo = ({ step, safeSetState }: IProps) => {
   return (
-    <WhiteContainer step={step}>
+    <WhiteContainer step={step} safeSetState={safeSetState} isLast>
       <Typography
         variant="h6"
         gutterBottom

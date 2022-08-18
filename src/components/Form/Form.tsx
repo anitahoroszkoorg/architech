@@ -2,7 +2,6 @@ import ResponsiveAppBar from "../AppBar/ResponsiveAppBar";
 import FormContainer from "./FormContainer";
 import form from "images/form.jpg";
 import { makeStyles } from "@mui/styles";
-import SplitScreen from "components/SplitScreen";
 const useStyles = makeStyles({
   imgStyle: {
     height: "40vh",

@@ -14,7 +14,7 @@ interface IProps {
 function PrimaryInfo({ step, safeSetState }: IProps) {
   return (
     <>
-      <WhiteContainer step={step}>
+      <WhiteContainer step={step} safeSetState={safeSetState} isLast={false}>
         <CompanyInfo />
       </WhiteContainer>
       <GreyContainer step={step} safeSetState={safeSetState}>
