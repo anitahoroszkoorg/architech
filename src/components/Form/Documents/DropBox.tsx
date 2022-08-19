@@ -20,8 +20,9 @@ const useStyles = makeStyles({
 });
 function DropBox() {
   const classes = useStyles();
-  const onDrop = useCallback((acceptedFiles: any) => {
+  const onDrop = useCallback((acceptedFiles: unknown) => {
     console.log(acceptedFiles);
+    // temporary
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
