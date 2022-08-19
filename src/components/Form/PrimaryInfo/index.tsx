@@ -1,7 +1,5 @@
-import React from "react";
 import WhiteContainer from "containers/WhiteContainer";
 import GreyContainer from "containers/GreyContainer";
-import Divider from "@mui/material/Divider";
 import ContactInfo from "./ContactInfo";
 import CompanyInfo from "./CompanyInfo.tsx";
 import { IState } from "../types";

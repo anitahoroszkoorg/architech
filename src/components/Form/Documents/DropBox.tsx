@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { useCallback } from "react";
 import { makeStyles } from "@material-ui/core";
-import { useState } from "react";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import { useDropzone } from "react-dropzone";
 

@@ -8,8 +8,7 @@ const FormButton = ({ label, changeStep }: IProps) => (
     variant="contained"
     sx={{ marginLeft: 2 }}
     onClick={changeStep}
-    size="small"
-    fullWidth
+    size="medium"
   >
     {label}
   </Button>

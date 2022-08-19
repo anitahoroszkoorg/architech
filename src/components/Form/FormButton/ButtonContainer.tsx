@@ -14,14 +14,14 @@ function ButtonContainer({ safeSetState, step }: IProps) {
     safeSetState({ step: step + stepChange });
   };
   return (
-    <div>
+    <>
       {shouldShowBackButton() ? (
         <FormButton label="back" changeStep={() => changeStep(-1)} />
       ) : null}
       {shouldShowNextButton() ? (
         <FormButton label="next" changeStep={() => changeStep(1)} />
       ) : null}
-    </div>
+    </>
   );
 }
 

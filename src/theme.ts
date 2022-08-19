@@ -24,8 +24,6 @@ const theme = createTheme({
             backgroundColor: "info.main",
           },
           borderRadius: 70,
-          marginTop: 15,
-          marginBottom: 7,
         },
       },
     },

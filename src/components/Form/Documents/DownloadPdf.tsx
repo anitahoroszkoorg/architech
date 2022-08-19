@@ -1,8 +1,6 @@
 import { Grid, Typography } from "@mui/material";
-import React from "react";
 import DropBox from "./DropBox";
 import DownloadIcon from "@mui/icons-material/Download";
-import GreyContainer from "containers/GreyContainer";
 const documentSteps = [
   <Grid item xs={12}>
     <Typography>
