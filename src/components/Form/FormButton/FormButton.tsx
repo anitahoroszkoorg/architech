@@ -6,7 +6,7 @@ interface IProps {
 const FormButton = ({ label, changeStep }: IProps) => (
   <Button
     variant="contained"
-    sx={{ marginLeft: 2 }}
+    sx={{ mb: 2, ml: 2 }}
     onClick={changeStep}
     size="medium"
   >

@@ -1,20 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 import DropBox from "./DropBox";
 import DownloadIcon from "@mui/icons-material/Download";
+
 const documentSteps = [
-  <Grid item xs={12}>
-    <Typography>
-      1. Sprawdź wprowadzone dane i pobierz dokument z wypełnioną ankietą
-    </Typography>
-  </Grid>,
-  <Grid item xs={12}>
-    <Typography>
-      2. Wydrukuj swoją ankietę i podpisz w wyznaczonym polu
-    </Typography>
-  </Grid>,
-  <Grid item xs={12}>
-    <Typography>3.Załącz skan podpisanego dokumentu</Typography>
-  </Grid>,
+  "   1. Sprawdź wprowadzone dane i pobierz dokument z wypełnioną ankietą",
+  "2. Wydrukuj swoją ankietę i podpisz w wyznaczonym polu",
+  "3.Załącz skan podpisanego dokumentu",
 ];
 
 function DownloadPdf() {
@@ -35,9 +26,11 @@ function DownloadPdf() {
       <Grid container>
         <Grid item xs={5} sx={{ padding: 1 }}>
           {documentSteps.map((step) => (
-            <Typography sx={{ color: "primary.main", mt: 1 }}>
-              {step}
-            </Typography>
+            <Grid item xs={12}>
+              <Typography sx={{ color: "primary.main", mt: 1 }}>
+                {step}
+              </Typography>
+            </Grid>
           ))}
         </Grid>
         <Grid item xs={5}>

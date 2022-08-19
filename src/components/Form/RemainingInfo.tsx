@@ -12,15 +12,17 @@ interface IProps {
 const RemainingInfo = ({ step, safeSetState }: IProps) => {
   return (
     <WhiteContainer step={step} safeSetState={safeSetState} isLast>
-      <Typography
-        variant="h6"
-        gutterBottom
-        component="div"
-        sx={{ color: "primary.main" }}
-      >
-        Pozostałe informacje
-      </Typography>
-      <TextFieldList fieldList={fieldsConfig.commercialFields} />
+      <>
+        <Typography
+          variant="h6"
+          gutterBottom
+          component="div"
+          sx={{ color: "primary.main" }}
+        >
+          Pozostałe informacje
+        </Typography>
+        <TextFieldList fieldList={fieldsConfig.commercialFields} />
+      </>
     </WhiteContainer>
   );
 };
