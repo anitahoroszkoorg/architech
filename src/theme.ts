@@ -1,6 +1,18 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#0C5089",
+    },
+    secondary: {
+      main: "#FFFFFF",
+    },
+    info: {
+      main: "#FBC02D",
+    },
+  },
+
   components: {
     MuiButton: {
       styleOverrides: {
@@ -9,11 +21,9 @@ const theme = createTheme({
           color: "#FFFFFF",
           fontSize: "1rem",
           "&:hover": {
-            backgroundColor: "#FBC02D",
+            backgroundColor: "info.main",
           },
           borderRadius: 70,
-          marginTop: 15,
-          marginBottom: 7,
         },
       },
     },
@@ -23,23 +33,6 @@ const theme = createTheme({
           backgroundColor: "#0C5089",
         },
       },
-    },
-    MuiStepConnector: {
-      styleOverrides: {
-        root: {
-          orientation: "vertical",
-          margin: 7,
-        },
-      },
-    },
-  },
-
-  palette: {
-    primary: {
-      main: "#0C5089",
-    },
-    secondary: {
-      main: "#FFFFFF",
     },
   },
 });

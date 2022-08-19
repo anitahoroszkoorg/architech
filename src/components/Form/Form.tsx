@@ -6,6 +6,8 @@ const useStyles = makeStyles({
   imgStyle: {
     height: "40vh",
     width: "100%",
+    margin: 0,
+    padding: 0,
   },
 });
 function Form() {

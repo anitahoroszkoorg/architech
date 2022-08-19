@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
-import TextFieldList from "./TextFieldList";
+import TextFieldList from "../TextFieldList";
 import { fieldsConfig } from "const";
-const PrimaryInfo = () => {
+const CompanyInfo = () => {
   return (
     <>
       <Typography
@@ -16,4 +16,4 @@ const PrimaryInfo = () => {
     </>
   );
 };
-export default PrimaryInfo;
+export default CompanyInfo;

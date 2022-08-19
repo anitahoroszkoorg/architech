@@ -15,6 +15,8 @@ const fieldsConfig = {
     { name: "city", label: "Miejscowość" },
     { name: "buildingNumber", label: "Nr budynku/lokalu" },
     { name: "zipCode", label: "Kod pocztowy" },
+  ],
+  contactFields: [
     { name: "contactName", label: "Imię i Nazwisko" },
     { name: "contactPosition", label: "Stanowisko" },
     { name: "contactPhoneNumber", label: "Telefon" },
