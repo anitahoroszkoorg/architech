@@ -6,6 +6,8 @@ import { IState } from "./types";
 import Documents from "./Documents";
 import Summary from "./Summary";
 import PrimaryInfo from "./PrimaryInfo";
+import formValidationSchema from "Validation/fromValidationSchema";
+
 interface IProps {
   state: IState;
   safeSetState: (stateUpdate: Partial<IState>) => void;
@@ -52,23 +54,30 @@ function FormContainer() {
     service: "",
     equity: "",
   });
+  const currentValidationSchema = formValidationSchema[state.step - 1];
 
   const safeSetState = (stateUpdate: Partial<IState>) =>
     setState((state: IState) => ({ ...state, ...stateUpdate }));
-
   return (
     <>
       <Grid container alignItems="flex-start">
         <Formik
+          validationSchema={currentValidationSchema}
           initialValues={state}
-          onSubmit={() => {
-            console.log("submit");
+          onSubmit={(values) => {
+            console.log(values);
             //temporary submit method
           }}
         >
-          {() => (
+          {({ validateForm }) => (
             <>
               <Grid container>
+                <button
+                  type="button"
+                  onClick={() => validateForm().then((e) => console.log(e))}
+                >
+                  Validate All
+                </button>
                 <CurrentForm safeSetState={safeSetState} state={state} />
               </Grid>
             </>

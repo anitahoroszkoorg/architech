@@ -11,6 +11,9 @@ const theme = createTheme({
     info: {
       main: "#FBC02D",
     },
+    error: {
+      main: "#d32f2f",
+    },
   },
 
   components: {
