@@ -69,15 +69,9 @@ function FormContainer() {
             //temporary submit method
           }}
         >
-          {({ validateForm }) => (
+          {() => (
             <>
               <Grid container>
-                <button
-                  type="button"
-                  onClick={() => validateForm().then((e) => console.log(e))}
-                >
-                  Validate All
-                </button>
                 <CurrentForm safeSetState={safeSetState} state={state} />
               </Grid>
             </>

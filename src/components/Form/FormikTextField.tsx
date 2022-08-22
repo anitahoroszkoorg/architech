@@ -13,7 +13,6 @@ const useStyles = makeStyles({
 function FormikTextField(props: IFieldProps) {
   const [field, meta] = useField(props.name);
   const classes = useStyles();
-  console.log(meta);
   return (
     <>
       <p>{props.label}</p>

@@ -1,5 +1,4 @@
-import { Checkbox, FormControlLabel, FormGroup, Typography } from "@mui/material";
-import CustomizedCheckbox from "components/StyledCheckbox";
+import { Typography } from "@mui/material";
 import { fieldsConfig } from "const";
 import WhiteContainer from "containers/WhiteContainer";
 import TextFieldList from "./TextFieldList";
@@ -23,7 +22,6 @@ const RemainingInfo = ({ step, safeSetState }: IProps) => {
           Pozostałe informacje
         </Typography>
         <TextFieldList fieldList={fieldsConfig.commercialFields} />
-     
       </>
     </WhiteContainer>
   );

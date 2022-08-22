@@ -3,6 +3,18 @@ const phoneRegex = RegExp(
   /^(?:(?:(?:(?:\+|00)\d{2})?[ -]?(?:(?:\(0?\d{2}\))|(?:0?\d{2})))?[ -]?(?:\d{3}[- ]?\d{2}[- ]?\d{2}|\d{2}[- ]?\d{2}[- ]?\d{3}|\d{7})|(?:(?:(?:\+|00)\d{2})?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}))$/
 );
 const zipRegex = RegExp(/(^\d{2}-\d{3}$)/);
+const validateNip = (nip: string | undefined): boolean => {
+  if (nip) {
+    const nipArray = nip.split("").map((str) => Number(str));
+    let sum = 0;
+    const weights = [6, 5, 7, 2, 3, 4, 5, 6, 7];
+    for (let i = 0; i < weights.length; i++) {
+      sum += nipArray[i] * weights[i];
+    }
+    return sum % 11 === nipArray[9];
+  }
+  return false;
+};
 
 const formValidationSchema = [
   Yup.object({
@@ -10,7 +22,10 @@ const formValidationSchema = [
       .min(3, "Musi zawierać conajmniej 3 znaki")
       .required("Wymagane"),
     nip: Yup.string()
-      .min(10, "Nieprawidłowy numer nip")
+      .test("test-name", "Nieprawidłowy numer NIP", (value) =>
+        validateNip(value)
+      )
+      .min(10, "Nieprawidłowy numer NIP")
       .matches(/^\d+$/, "Musi składać się wyłącznie z liczb")
       .required("Wymagane"),
     email: Yup.string().email("Nieprawidłowy adres email").required("Wymagane"),
