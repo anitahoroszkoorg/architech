@@ -4,6 +4,7 @@ const phoneRegex = RegExp(
 );
 const zipRegex = RegExp(/(^\d{2}-\d{3}$)/);
 const onlyDigitRegex = RegExp(/^\d+$/);
+const onlyLettersRegex = RegExp(/^[a-zA-Z\s]*$/);
 const validateNip = (nip: string | undefined): boolean => {
   if (nip) {
     const nipArray = nip.split("").map((str) => Number(str));
@@ -34,7 +35,7 @@ const formValidationSchema = [
       .matches(phoneRegex, "Nieprawidłowy numer telefonu")
       .required("Wymagane"),
     street: Yup.string()
-      .matches(/^[a-zA-Z\s]*$/, "Tekst zawiera liczby")
+      .matches(onlyLettersRegex, "Tekst zawiera liczby")
       .min(1, "Nieprawidłowy format")
       .required("Wymagane"),
     city: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
@@ -45,11 +46,11 @@ const formValidationSchema = [
       .matches(zipRegex, "Nieprawidłowy format kodu pocztowego")
       .required("Wymagane"),
     contactName: Yup.string()
-      .matches(/^[a-zA-Z\s]*$/, "Tekst zawiera liczby")
+      .matches(onlyLettersRegex, "Tekst zawiera liczby")
       .min(3, "Nieprawidłowy format")
       .required("Wymagane"),
     contactPosition: Yup.string()
-      .matches(/^[a-zA-Z\s]*$/, "Tekst zawiera liczby")
+      .matches(onlyLettersRegex, "Tekst zawiera liczby")
       .min(3, "Nieprawidłowy format")
       .required("Wymagane"),
     contactPhoneNumber: Yup.string()
@@ -72,7 +73,7 @@ const formValidationSchema = [
       .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
       .required("Wymagane"),
     taxPayer: Yup.string()
-      .matches(/^[a-zA-Z\s]*$/, "Tekst zawiera liczby")
+      .matches(onlyLettersRegex, "Tekst zawiera liczby")
       .min(3, "Nieprawidłowy format")
       .required("Wymagane"),
     foundingYear: Yup.string()
@@ -89,12 +90,12 @@ const formValidationSchema = [
       .min(3, "Nieprawidłowy format")
       .required("Wymagane"),
     departments: Yup.string()
-      .matches(/^[a-zA-Z\s]*$/, "Tekst zawiera liczby")
+      .matches(onlyLettersRegex, "Tekst zawiera liczby")
       .min(3, "Nieprawidłowy format")
       .required("Wymagane"),
     service: Yup.string()
       .min(3, "Nieprawidłowy format")
-      .matches(/^[a-zA-Z\s]*$/, "Tekst zawiera liczby")
+      .matches(onlyLettersRegex, "Tekst zawiera liczby")
       .required("Wymagane"),
     equity: Yup.string()
       .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
