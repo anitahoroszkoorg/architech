@@ -6,7 +6,7 @@ import { IState } from "./types";
 import Documents from "./Documents";
 import Summary from "./Summary";
 import PrimaryInfo from "./PrimaryInfo";
-import formValidationSchema from "Validation/fromValidationSchema";
+import formValidationSchema from "Validation/formValidationSchema";
 
 interface IProps {
   state: IState;
