@@ -6,7 +6,7 @@ const PageList = () => {
   return (
     <>
       {pages.map((page) => (
-        <Grid item xs={2}>
+        <Grid key={`${page}_grid`} item xs={2}>
           <Typography>{page}</Typography>
         </Grid>
       ))}
