@@ -6,22 +6,6 @@ const pages = [
 ];
 
 const fieldsConfig = {
-  companyInfoFields: [
-    { name: "companyName", label: "Pełna nazwa firmy" },
-    { name: "nip", label: "NIP" },
-    { name: "phoneNumber", label: "Telefon" },
-    { name: "email", label: "E-mail" },
-    { name: "street", label: "Ulica" },
-    { name: "city", label: "Miejscowość" },
-    { name: "buildingNumber", label: "Nr budynku/lokalu" },
-    { name: "zipCode", label: "Kod pocztowy" },
-  ],
-  contactFields: [
-    { name: "contactName", label: "Imię i Nazwisko" },
-    { name: "contactPosition", label: "Stanowisko" },
-    { name: "contactPhoneNumber", label: "Telefon" },
-    { name: "contactEmail", label: "E-mail" },
-  ],
   commercialFields: [
     { name: "employeesAmount", label: "Ilość zatrudnionych" },
     { name: "sumOfSales", label: "Łączna sprzedaż z ostatnich 3 lat" },

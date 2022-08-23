@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { fieldsConfig } from "const";
 import WhiteContainer from "containers/WhiteContainer";
-import TextFieldList from "./TextFieldList";
 import { IState } from "./types";
 
 interface IProps {
@@ -21,7 +20,6 @@ const RemainingInfo = ({ step, safeSetState }: IProps) => {
         >
           Pozostałe informacje
         </Typography>
-        <TextFieldList fieldList={fieldsConfig.commercialFields} />
       </>
     </WhiteContainer>
   );
