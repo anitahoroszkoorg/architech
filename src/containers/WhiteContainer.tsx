@@ -5,7 +5,7 @@ import ButtonContainer from "components/Form/FormButton/ButtonContainer";
 
 interface IProps {
   step: number;
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
   safeSetState: (stateUpdate: Partial<IState>) => void;
   isLast: boolean;
 }
