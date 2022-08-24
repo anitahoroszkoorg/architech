@@ -5,7 +5,7 @@ import ButtonContainer from "components/Form/FormButton/ButtonContainer";
 
 interface IProps {
   step: number;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   safeSetState: (stateUpdate: Partial<IState>) => void;
   isLast: boolean;
 }
@@ -19,7 +19,7 @@ function WhiteContainer({ children, step, safeSetState, isLast }: IProps) {
         {children}
       </Grid>
       {isLast ? (
-        <Grid container justifyContent="flex-end">
+        <Grid container xs={11} justifyContent="flex-end">
           <ButtonContainer safeSetState={safeSetState} step={step} />
         </Grid>
       ) : null}
