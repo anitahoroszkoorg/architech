@@ -1,6 +1,5 @@
-import { Typography } from "@mui/material";
-import TextFieldList from "../TextFieldList";
-import { fieldsConfig } from "const";
+import { Grid, Typography } from "@mui/material";
+import FormikTextField from "../FormikTextField";
 function ContactInfo() {
   return (
     <>
@@ -12,7 +11,20 @@ function ContactInfo() {
       >
         Dane Kontaktowe
       </Typography>
-      <TextFieldList fieldList={fieldsConfig.contactFields} />
+      <Grid container>
+        <Grid item md={6}>
+          <FormikTextField name="contactName" label="Imię i Nazwisko" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="contactPosition" label="Stanowisko" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="contactPhoneNumber" label="Telefon" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="contactEmail" label="E-mail  " />
+        </Grid>
+      </Grid>
     </>
   );
 }

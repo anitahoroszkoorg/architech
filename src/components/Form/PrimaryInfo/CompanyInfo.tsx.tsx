@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
-import TextFieldList from "../TextFieldList";
-import { fieldsConfig } from "const";
+import { Grid, Typography } from "@mui/material";
+
+import FormikTextField from "../FormikTextField";
 const CompanyInfo = () => {
   return (
     <>
@@ -12,7 +12,32 @@ const CompanyInfo = () => {
       >
         Ankieta kwalifikacyjna
       </Typography>
-      <TextFieldList fieldList={fieldsConfig.companyInfoFields} />
+      <Grid container>
+        <Grid item md={6}>
+          <FormikTextField name="companyName" label="Pełna nazwa firmy" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="nip" label="NIP" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="phoneNumber" label="Telefon" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="email" label="E-mail" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="street" label="Ulica" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="city" label="Miejscowość" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="buildingNumber" label="Nr budynku/lokalu" />
+        </Grid>
+        <Grid item md={6}>
+          <FormikTextField name="zipCode" label="Kod pocztowy" />
+        </Grid>
+      </Grid>
     </>
   );
 };
