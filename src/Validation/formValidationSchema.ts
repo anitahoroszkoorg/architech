@@ -13,7 +13,7 @@ export const validateNip = (nip: string | undefined): boolean => {
     for (let i = 0; i < weights.length; i++) {
       sum += nipArray[i] * weights[i];
     }
-    return sum % 11 === nipArray[9];
+    return sum % 11 === nipArray[9] && nipArray.length == 10;
   }
   return false;
 };
@@ -34,9 +34,7 @@ const formValidationSchema = [
     phoneNumber: Yup.string()
       .matches(phoneRegex, "Nieprawidłowy numer telefonu")
       .required("Wymagane"),
-    street: Yup.string()
-      .min(3, "Nieprawidłowy format")
-      .required("Wymagane"),
+    street: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
     city: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
     buildingNumber: Yup.string()
       .min(1, "Nieprawidłowy format")
