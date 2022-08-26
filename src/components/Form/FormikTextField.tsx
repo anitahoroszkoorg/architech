@@ -23,6 +23,7 @@ function FormikTextField(props: IFieldProps) {
         variant="outlined"
         size="small"
         {...field}
+        
       />
       {meta.touched && Boolean(meta.error) ? (
         <FormHelperText sx={{ color: "error.main" }}>

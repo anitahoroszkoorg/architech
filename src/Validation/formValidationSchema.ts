@@ -5,7 +5,7 @@ const phoneRegex = RegExp(
 const zipRegex = RegExp(/(^\d{2}-\d{3}$)/);
 const onlyDigitRegex = RegExp(/^\d+$/);
 const onlyLettersRegex = RegExp(/^[a-zA-Z\s]*$/);
-const validateNip = (nip: string | undefined): boolean => {
+export const validateNip = (nip: string | undefined): boolean => {
   if (nip) {
     const nipArray = nip.split("").map((str) => Number(str));
     let sum = 0;
@@ -35,8 +35,7 @@ const formValidationSchema = [
       .matches(phoneRegex, "Nieprawidłowy numer telefonu")
       .required("Wymagane"),
     street: Yup.string()
-      .matches(onlyLettersRegex, "Tekst zawiera liczby")
-      .min(1, "Nieprawidłowy format")
+      .min(3, "Nieprawidłowy format")
       .required("Wymagane"),
     city: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
     buildingNumber: Yup.string()
