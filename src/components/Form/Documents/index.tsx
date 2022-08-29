@@ -7,15 +7,22 @@ import { IState } from "../types";
 interface IProps {
   step: number;
   safeSetState: (stateUpdate: Partial<IState>) => void;
+  shouldShowAllFields: boolean;
+  setShouldShowAllFields: (shouldShowAllFields: boolean) => void;
 }
 
-function DocumentsPage({ safeSetState, step }: IProps) {
+function DocumentsPage({ safeSetState, step, setShouldShowAllFields }: IProps) {
   return (
     <>
       <WhiteContainer step={step} safeSetState={safeSetState} isLast={false}>
         <Documents />
       </WhiteContainer>
-      <GreyContainer step={step} safeSetState={safeSetState}>
+      <GreyContainer
+        step={step}
+        safeSetState={safeSetState}
+        shouldShowAllFields={true}
+        setShouldShowAllFields={setShouldShowAllFields}
+      >
         <DownloadPdf />
       </GreyContainer>
     </>

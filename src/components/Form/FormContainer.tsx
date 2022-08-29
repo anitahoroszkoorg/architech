@@ -11,15 +11,36 @@ import formValidationSchema from "Validation/formValidationSchema";
 interface IProps {
   state: IState;
   safeSetState: (stateUpdate: Partial<IState>) => void;
+  shouldShowAllFields: boolean;
+  setShouldShowAllFields: (shouldShowAllFields: boolean) => void;
 }
-export const CurrentForm = ({ state, safeSetState }: IProps): JSX.Element => {
+export const CurrentForm = ({
+  state,
+  safeSetState,
+  shouldShowAllFields,
+  setShouldShowAllFields,
+}: IProps): JSX.Element => {
   switch (state.step) {
     case 1:
-      return <PrimaryInfo step={state.step} safeSetState={safeSetState} />;
+      return (
+        <PrimaryInfo
+          step={state.step}
+          safeSetState={safeSetState}
+          shouldShowAllFields={shouldShowAllFields}
+          setShouldShowAllFields={setShouldShowAllFields}
+        />
+      );
     case 2:
       return <RemainingInfo step={state.step} safeSetState={safeSetState} />;
     case 3:
-      return <Documents step={state.step} safeSetState={safeSetState} />;
+      return (
+        <Documents
+          step={state.step}
+          safeSetState={safeSetState}
+          shouldShowAllFields={shouldShowAllFields}
+          setShouldShowAllFields={setShouldShowAllFields}
+        />
+      );
     case 4:
       return <Summary step={state.step} safeSetState={safeSetState} />;
     default:
@@ -42,7 +63,7 @@ function FormContainer() {
     contactPosition: "",
     contactPhoneNumber: "",
     contactEmail: "",
-    legalStatus: "",
+    legalForm: "",
     accountNumber: "",
     regon: "",
     taxPayer: "",
@@ -58,6 +79,8 @@ function FormContainer() {
 
   const safeSetState = (stateUpdate: Partial<IState>) =>
     setState((state: IState) => ({ ...state, ...stateUpdate }));
+  const [shouldShowAllFields, setShouldShowAllFields] =
+    useState<boolean>(false);
   return (
     <>
       <Grid container alignItems="flex-start">
@@ -72,7 +95,12 @@ function FormContainer() {
           {() => (
             <>
               <Grid container>
-                <CurrentForm safeSetState={safeSetState} state={state} />
+                <CurrentForm
+                  safeSetState={safeSetState}
+                  state={state}
+                  shouldShowAllFields={shouldShowAllFields}
+                  setShouldShowAllFields={setShouldShowAllFields}
+                />
               </Grid>
             </>
           )}

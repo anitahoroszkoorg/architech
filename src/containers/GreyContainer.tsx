@@ -7,6 +7,8 @@ interface IProps {
   step: number;
   children: JSX.Element | JSX.Element[];
   safeSetState: (stateUpdate: Partial<IState>) => void;
+  shouldShowAllFields: boolean;
+  setShouldShowAllFields: (shouldShowAllFields: boolean) => void;
 }
 
 const useStyles = makeStyles({
@@ -15,22 +17,29 @@ const useStyles = makeStyles({
     marginTop: 30,
   },
 });
-function GreyContainer({ children, safeSetState, step }: IProps) {
+function GreyContainer({
+  children,
+  safeSetState,
+  step,
+  shouldShowAllFields,
+}: IProps) {
   const classes = useStyles();
-
-  return (
-    <Grid container className={classes.containerStyle}>
-      <Divider sx={{ width: "100%" }} />
-      <Grid item xs={3} />
-      {/* replace with styles */}
-      <Grid container xs={9}>
-        {children}
+  if (shouldShowAllFields) {
+    return (
+      <Grid container className={classes.containerStyle}>
+        <Divider sx={{ width: "100%" }} />
+        <Grid item xs={3} />
+        {/* replace with styles */}
+        <Grid container xs={9}>
+          {children}
+        </Grid>
+        <Grid container xs={11} justifyContent="flex-end">
+          <ButtonContainer safeSetState={safeSetState} step={step} />
+        </Grid>
       </Grid>
-      <Grid container xs={11} justifyContent="flex-end">
-        <ButtonContainer safeSetState={safeSetState} step={step} />
-      </Grid>
-    </Grid>
-  );
+    );
+  }
+  return null;
 }
 
 export default GreyContainer;

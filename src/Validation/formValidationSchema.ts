@@ -58,7 +58,7 @@ const formValidationSchema = [
       .required("Wymagane"),
   }),
   Yup.object({
-    legalStatus: Yup.string().required("Wymagane"),
+    legalForm: Yup.string().required("Wymagane"),
     accountNumber: Yup.string()
       .min(26, "Nieprawidłowy numer konta")
       .max(26, "Nieprawidłowy numer konta")
