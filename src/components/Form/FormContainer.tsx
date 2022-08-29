@@ -42,7 +42,7 @@ function FormContainer() {
     contactPosition: "",
     contactPhoneNumber: "",
     contactEmail: "",
-    legalStatus: "",
+    legalForm: "",
     accountNumber: "",
     regon: "",
     taxPayer: "",
@@ -58,6 +58,7 @@ function FormContainer() {
 
   const safeSetState = (stateUpdate: Partial<IState>) =>
     setState((state: IState) => ({ ...state, ...stateUpdate }));
+
   return (
     <>
       <Grid container alignItems="flex-start">

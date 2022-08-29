@@ -45,7 +45,7 @@ const RemainingInfo = ({ step, safeSetState }: IProps) => {
           <FormikTextField name="equity" label="Kapitał spółki" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="legalStatus" label="Forma prawna" />
+          <FormikTextField name="legalForm" label="Forma prawna" />
         </Grid>
         <Grid item md={6}>
           <FormikTextField name="accountNumber" label="Konto bankowe" />

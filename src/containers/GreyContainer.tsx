@@ -17,7 +17,6 @@ const useStyles = makeStyles({
 });
 function GreyContainer({ children, safeSetState, step }: IProps) {
   const classes = useStyles();
-
   return (
     <Grid container className={classes.containerStyle}>
       <Divider sx={{ width: "100%" }} />

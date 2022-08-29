@@ -1,8 +1,9 @@
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 import TextField from "@mui/material/TextField";
 import { IFieldProps } from "./types";
 import { makeStyles } from "@material-ui/core";
 import { FormHelperText } from "@mui/material";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   whiteFieldStyle: {
@@ -13,6 +14,13 @@ const useStyles = makeStyles({
 function FormikTextField(props: IFieldProps) {
   const [field, meta] = useField(props.name);
   const classes = useStyles();
+  const { setFieldTouched } = useFormikContext();
+  useEffect(() => {
+    if (field.value !== "") {
+      setFieldTouched(field.name, true);
+    }
+  }, [field.value]);
+
   return (
     <>
       <p>{props.label}</p>

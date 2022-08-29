@@ -5,7 +5,7 @@ const phoneRegex = RegExp(
 const zipRegex = RegExp(/(^\d{2}-\d{3}$)/);
 const onlyDigitRegex = RegExp(/^\d+$/);
 const onlyLettersRegex = RegExp(/^[a-zA-Z\s]*$/);
-const validateNip = (nip: string | undefined): boolean => {
+export const validateNip = (nip: string | undefined): boolean => {
   if (nip) {
     const nipArray = nip.split("").map((str) => Number(str));
     let sum = 0;
@@ -13,7 +13,7 @@ const validateNip = (nip: string | undefined): boolean => {
     for (let i = 0; i < weights.length; i++) {
       sum += nipArray[i] * weights[i];
     }
-    return sum % 11 === nipArray[9];
+    return sum % 11 === nipArray[9] && nipArray.length == 10;
   }
   return false;
 };
@@ -34,10 +34,7 @@ const formValidationSchema = [
     phoneNumber: Yup.string()
       .matches(phoneRegex, "Nieprawidłowy numer telefonu")
       .required("Wymagane"),
-    street: Yup.string()
-      .matches(onlyLettersRegex, "Tekst zawiera liczby")
-      .min(1, "Nieprawidłowy format")
-      .required("Wymagane"),
+    street: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
     city: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
     buildingNumber: Yup.string()
       .min(1, "Nieprawidłowy format")
@@ -61,7 +58,7 @@ const formValidationSchema = [
       .required("Wymagane"),
   }),
   Yup.object({
-    legalStatus: Yup.string().required("Wymagane"),
+    legalForm: Yup.string().required("Wymagane"),
     accountNumber: Yup.string()
       .min(26, "Nieprawidłowy numer konta")
       .max(26, "Nieprawidłowy numer konta")

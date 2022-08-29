@@ -12,7 +12,7 @@ export interface IState {
   contactPosition: string;
   contactPhoneNumber: string;
   contactEmail: string;
-  legalStatus: string;
+  legalForm: string;
   accountNumber: string;
   regon: string;
   taxPayer: string;
