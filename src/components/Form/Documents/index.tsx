@@ -11,18 +11,13 @@ interface IProps {
   setShouldShowAllFields: (shouldShowAllFields: boolean) => void;
 }
 
-function DocumentsPage({ safeSetState, step, setShouldShowAllFields }: IProps) {
+function DocumentsPage({ safeSetState, step }: IProps) {
   return (
     <>
       <WhiteContainer step={step} safeSetState={safeSetState} isLast={false}>
         <Documents />
       </WhiteContainer>
-      <GreyContainer
-        step={step}
-        safeSetState={safeSetState}
-        shouldShowAllFields={true}
-        setShouldShowAllFields={setShouldShowAllFields}
-      >
+      <GreyContainer step={step} safeSetState={safeSetState}>
         <DownloadPdf />
       </GreyContainer>
     </>

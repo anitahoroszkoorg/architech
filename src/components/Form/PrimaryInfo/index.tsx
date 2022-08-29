@@ -24,14 +24,11 @@ function PrimaryInfo({
           setShouldShowAllFields={setShouldShowAllFields}
         />
       </WhiteContainer>
-      <GreyContainer
-        step={step}
-        safeSetState={safeSetState}
-        shouldShowAllFields={shouldShowAllFields}
-        setShouldShowAllFields={setShouldShowAllFields}
-      >
-        <ContactInfo />
-      </GreyContainer>
+      {shouldShowAllFields ? (
+        <GreyContainer step={step} safeSetState={safeSetState}>
+          <ContactInfo />
+        </GreyContainer>
+      ) : null}
     </>
   );
 }
