@@ -3,19 +3,15 @@ import GreyContainer from "containers/GreyContainer";
 import ContactInfo from "./ContactInfo";
 import CompanyInfo from "./CompanyInfo";
 import { IState } from "../types";
+import { useState } from "react";
 interface IProps {
   step: number;
   safeSetState: (stateUpdate: Partial<IState>) => void;
-  shouldShowAllFields: boolean;
-  setShouldShowAllFields: (shouldShowAllFields: boolean) => void;
 }
 
-function PrimaryInfo({
-  step,
-  safeSetState,
-  shouldShowAllFields,
-  setShouldShowAllFields,
-}: IProps) {
+function PrimaryInfo({ step, safeSetState }: IProps) {
+  const [shouldShowAllFields, setShouldShowAllFields] =
+    useState<boolean>(false);
   return (
     <>
       <WhiteContainer step={step} safeSetState={safeSetState} isLast={false}>

@@ -7,8 +7,6 @@ import { IState } from "../types";
 interface IProps {
   step: number;
   safeSetState: (stateUpdate: Partial<IState>) => void;
-  shouldShowAllFields: boolean;
-  setShouldShowAllFields: (shouldShowAllFields: boolean) => void;
 }
 
 function DocumentsPage({ safeSetState, step }: IProps) {
