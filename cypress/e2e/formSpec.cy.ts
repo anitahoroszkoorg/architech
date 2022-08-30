@@ -48,7 +48,7 @@ describe("My First Test", () => {
     cy.contains("next").click();
   });
   it("Nip show extra fields ", () => {
-    cy.visit("/");
+    cy.visit("/form");
     cy.get('[data-testid="fade"]').should("not.be.visible");
     cy.get('[id="city"]').should("not.be.visible");
     cy.get('[id="nip"]').type("5252674798");
