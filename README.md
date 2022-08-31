@@ -1,4 +1,4 @@
-# Budimex (Architech) application for filling out forms
+# Architech application for filling out forms
 
 I designed this project in Figma for a company that needed better UX for their application process for potential contractors. I've created a more user friendly layout for filling out complicated forms. I've decided to develop it myself in React with Typescript using tools such as Material UI and Formik.
 
