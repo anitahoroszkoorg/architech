@@ -3,9 +3,9 @@ from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from budimex import crud, schemas, models
-from budimex.database import SessionLocal, engine
-from budimex.gus_client import fetch_data_from_gus
+from architech import crud, schemas, models
+from architech.database import SessionLocal, engine
+from architech.gus_client import fetch_data_from_gus
 
 models.Base.metadata.create_all(bind=engine)
 

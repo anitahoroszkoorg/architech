@@ -5,8 +5,8 @@ from requests import Session
 from zeep import Client, Transport
 
 # WSDL = 'https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/wsdl/UslugaBIRzewnPubl.xsd'
-from budimex import crud
-from budimex.schemas import SPECIFIC_LEGAL_FORMS, LEGAL_FORMS
+from architech import crud
+from architech.schemas import SPECIFIC_LEGAL_FORMS, LEGAL_FORMS
 
 WSDL = 'https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/wsdl/UslugaBIRzewnPubl-ver11-test.wsdl'
 ENDPOINT = 'https://wyszukiwarkaregon.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc'
