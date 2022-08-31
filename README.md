@@ -8,7 +8,7 @@ I designed this project in Figma for a company that needed better UX for their a
 
 ## Preview
 
-<img width="350" alt="budimex3" src="https://user-images.githubusercontent.com/95635795/182837585-c49e2e6a-697b-4993-be68-a24bf5ba216a.png">
+<img width="350" alt="architech" src="https://user-images.githubusercontent.com/95635795/182837585-c49e2e6a-697b-4993-be68-a24bf5ba216a.png">
 
 ## Run Locally
 
