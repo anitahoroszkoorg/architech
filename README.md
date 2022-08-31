@@ -15,13 +15,13 @@ I designed this project in Figma for a company that needed better UX for their a
 Clone the project
 
 ```bash
-  git clone https://github.com/anitahoroszko/budimex
+  git clone https://github.com/anitahoroszko/arichitech
 ```
 
 Go to the project directory
 
 ```bash
-  cd budimex
+  cd arichitech
 ```
 
 Install dependencies
