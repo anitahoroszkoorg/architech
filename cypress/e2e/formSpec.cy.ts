@@ -3,7 +3,7 @@ describe("My First Test", () => {
     cy.intercept("POST", "nip-info", {
       statusCode: 201,
       body: {
-        city: "XXXX",
+        city: "Poznań",
         name: "Firma testowa",
         regon: "125581923",
         address: "ul. Testowa",
@@ -49,7 +49,7 @@ describe("My First Test", () => {
     cy.visit("/form");
     cy.get('[data-testid="fade"]').should("not.be.visible");
     cy.get('[id="city"]').should("not.be.visible");
-    cy.get('[id="nip"]').type("5252674798");
+    cy.get('[id="nip"]').type("7964141711");
     cy.get('[data-testid="fade"]').should("be.visible");
     cy.get('[id="city"]').should("be.visible").should("have.value", "Poznań");
   });
