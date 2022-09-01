@@ -4,15 +4,15 @@ describe("My First Test", () => {
       statusCode: 201,
       body: {
         city: "Poznań",
-        name: "ALLEGRO SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
-        regon: "365331553",
-        address: "ul. Wierzbięcice",
+        name: "FIRMA XXX",
+        regon: "2141251",
+        address: "ul. testowa",
         legal_form: {
           name: "osoba prawna",
         },
-        postal_code: "61-569",
+        postal_code: "111-22",
         local_number: "",
-        address_number: "1B",
+        address_number: "1C",
         specific_legal_form: {
           name: "spółki z ograniczoną odpowiedzialnością",
         },
