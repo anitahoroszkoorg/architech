@@ -3,16 +3,16 @@ describe("My First Test", () => {
     cy.intercept("POST", "nip-info", {
       statusCode: 201,
       body: {
-        city: "Poznań",
-        name: "FIRMA XXX",
-        regon: "2141251",
-        address: "ul. testowa",
+        city: "XXXX",
+        name: "Firma testowa",
+        regon: "125581923",
+        address: "ul. Testowa",
         legal_form: {
           name: "osoba prawna",
         },
-        postal_code: "111-22",
+        postal_code: "12-345",
         local_number: "",
-        address_number: "1C",
+        address_number: "1B",
         specific_legal_form: {
           name: "spółki z ograniczoną odpowiedzialnością",
         },
