@@ -54,7 +54,9 @@ const CompanyInfo = ({
         </Grid>
         <Divider sx={{ width: "100%", marginTop: 5 }} />
         <Grid item md={12}>
-          <Fade in={shouldShowAllFields}>{companyFields}</Fade>
+          <Fade data-testid="fade" in={shouldShowAllFields}>
+            {companyFields}
+          </Fade>
         </Grid>
       </Grid>
     </>

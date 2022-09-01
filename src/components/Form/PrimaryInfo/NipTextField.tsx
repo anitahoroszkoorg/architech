@@ -12,9 +12,11 @@ const useStyles = makeStyles({
     backgroundColor: "white",
   },
 });
+const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
 const NipTextField = ({ name, label, setShouldShowAllFields }: IProps) => {
   const [field, meta] = useField(name);
-  const { setFieldValue } = useFormikContext();
+  const { setFieldValue, setFieldTouched } = useFormikContext();
   const classes = useStyles();
   return (
     <>
@@ -40,7 +42,7 @@ const NipTextField = ({ name, label, setShouldShowAllFields }: IProps) => {
               body: JSON.stringify(input),
             })
               .then((response) => response.json())
-              .then((data) => {
+              .then(async (data) => {
                 const fieldMap: { [key: string]: string } = {
                   name: "companyName",
                   address: "street",
@@ -53,6 +55,13 @@ const NipTextField = ({ name, label, setShouldShowAllFields }: IProps) => {
                   setFieldValue(fieldMap[key], data[key]);
                 });
                 setFieldValue("legalForm", data.legal_form.name);
+                // Hack to wait for new value to be applied
+                // Pending https://github.com/jaredpalmer/formik/issues/529
+                await delay(1);
+                Object.keys(data).forEach((key: string) => {
+                  setFieldTouched(fieldMap[key], true);
+                });
+                setFieldValue("legalForm", true);
               });
             setShouldShowAllFields(true);
           }
