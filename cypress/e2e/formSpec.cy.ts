@@ -1,5 +1,3 @@
-import { cyan } from "@material-ui/core/colors";
-
 describe("My First Test", () => {
   beforeEach(() => {
     cy.intercept("POST", "nip-info", {

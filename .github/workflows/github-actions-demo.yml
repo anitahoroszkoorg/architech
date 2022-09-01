@@ -50,7 +50,7 @@ jobs:
         run: yarn install --frozen-lockfile --cache-folder ~/.yarn
 
       - name: run cypress check
-        run: yarn cy:test
+        run: yarn test:ci:cypress
   prettier_check:
     runs-on: ubuntu-latest
     steps:
