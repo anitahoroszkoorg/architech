@@ -15,7 +15,7 @@ function scrollToTop() {
 function ButtonContainer({ safeSetState, step }: IProps) {
   const { validateForm, setFieldTouched } = useFormikContext();
 
-  const shouldShowBackButton = () => step > 1 && step < 5;
+  const shouldShowBackButton = () => step > 1 && step < 4;
 
   const shouldShowNextButton = () => step < 4;
 

@@ -12,25 +12,25 @@ const CompanyInfo = ({
   const companyFields = (
     <Grid container>
       <Grid item md={12}>
-        <FormikTextField name="companyName" label="Pełna nazwa firmy" />
+        <FormikTextField name="companyName" label="Full company name" />
       </Grid>
       <Grid item md={6}>
-        <FormikTextField name="street" label="Ulica" />
+        <FormikTextField name="street" label="Street" />
       </Grid>
       <Grid item md={6}>
-        <FormikTextField name="city" label="Miejscowość" />
+        <FormikTextField name="city" label="City" />
       </Grid>
       <Grid item md={6}>
-        <FormikTextField name="buildingNumber" label="Nr budynku/lokalu" />
+        <FormikTextField name="buildingNumber" label="Building number" />
       </Grid>
       <Grid item md={6}>
-        <FormikTextField name="zipCode" label="Kod pocztowy" />
+        <FormikTextField name="zipCode" label="Zip code" />
       </Grid>
       <Grid item md={6}>
-        <FormikTextField name="phoneNumber" label="Telefon" />
+        <FormikTextField name="phoneNumber" label="Phone number" />
       </Grid>
       <Grid item md={6}>
-        <FormikTextField name="email" label="E-mail" />
+        <FormikTextField name="email" label="E-mail address" />
       </Grid>
     </Grid>
   );
@@ -42,13 +42,13 @@ const CompanyInfo = ({
         component="div"
         sx={{ color: "primary.main" }}
       >
-        Ankieta kwalifikacyjna
+        Qualification Questionnaire
       </Typography>
       <Grid container>
         <Grid item md={12}>
           <NipTextField
             name="nip"
-            label="numer NIP"
+            label="NIP number"
             setShouldShowAllFields={setShouldShowAllFields}
           />
         </Grid>

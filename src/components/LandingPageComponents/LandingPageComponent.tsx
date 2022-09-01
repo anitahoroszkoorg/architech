@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     marginTop: 15,
     marginLeft: 20,
     position: "absolute",
-    height: 75,
+    height: "30%",
   },
   link: {
     textDecoration: "none",
@@ -42,14 +42,17 @@ export default function LandingPageComponent() {
       <Grid container className={classes.background}>
         <Grid container direction="column" className={classes.gridStyle}>
           <Typography variant="h4" className={classes.typoStyle}>
-            Witamy w Architech
+            Welcome to Architech
           </Typography>
           <Typography variant="h6" className={classes.typoStyle}>
-            Zmieniamy polski przemysł budowlany
+            Revolutionizing architecture{" "}
+          </Typography>
+          <Typography variant="h6" className={classes.typoStyle} sx={{ mb: 2 }}>
+            since 1990
           </Typography>
           <Button variant="contained">
             <Link to="form" className={classes.link}>
-              Zarejestruj się
+              REGISTER
             </Link>
           </Button>
         </Grid>

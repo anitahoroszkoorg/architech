@@ -7,12 +7,7 @@ import {
 } from "@mui/material";
 import DropBox from "components/Form/Documents/DropBox";
 
-const documents = [
-  "Referencje",
-  "Certyfikat systemu jakości ISO",
-  "Certyfikat Systemu jakości AQAP",
-  "Certyfikat ZKP",
-];
+const documents = ["References"];
 
 function Documents() {
   return (
@@ -23,10 +18,10 @@ function Documents() {
         component="div"
         sx={{ color: "primary.main", marginTop: 2 }}
       >
-        Wymagane dokumenty
+        Required documents
       </Typography>
       <Grid container>
-        <Grid item xs={5} sx={{ marginTop: 5 }}>
+        <Grid item xs={12} sx={{ marginTop: 5 }}>
           <FormGroup>
             {documents.map((document) => (
               <>
@@ -39,7 +34,7 @@ function Documents() {
             ))}
           </FormGroup>
         </Grid>
-        <Grid item xs={1} sx={{ marginTop: 5 }}>
+        <Grid item xs={12} sx={{ marginTop: 5 }}>
           <DropBox />
         </Grid>
       </Grid>

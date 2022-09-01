@@ -21,46 +21,38 @@ const RemainingInfo = ({ step, safeSetState }: IProps) => {
       </Typography>
       <Grid container>
         <Grid item md={6}>
-          <FormikTextField name="employeesAmount" label="Ilość zatrudnionych" />
+          <FormikTextField name="employeesAmount" label="Amount of employees" />
         </Grid>
         <Grid item md={6}>
           <FormikTextField
             name="sumOfSales"
-            label="Łączna sprzedaż z ostatnich 3 lat"
+            label="Combined sales of the last 3 years"
           />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField
-            name="departments"
-            label="Filie/przedstawicielstwa/oddziały"
-          />
+          <FormikTextField name="departments" label="Departments" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField
-            name="service"
-            label="Oferowany zakres dostaw/usług"
-          />
+          <FormikTextField name="service" label="Offered range of services" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="equity" label="Kapitał spółki" />
+          <FormikTextField name="equity" label="Equity" />
         </Grid>
+
         <Grid item md={6}>
-          <FormikTextField name="legalForm" label="Forma prawna" />
-        </Grid>
-        <Grid item md={6}>
-          <FormikTextField name="accountNumber" label="Konto bankowe" />
+          <FormikTextField name="accountNumber" label="Bank account number" />
         </Grid>
         <Grid item md={6}>
           <FormikTextField name="regon" label="REGON" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="taxPayer" label="Płatnik VAT" />
+          <FormikTextField name="taxPayer" label="VAT taxpayer" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="foundingYear" label="Rok założenia" />
+          <FormikTextField name="foundingYear" label="Founding year" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="supplierCategory" label="Kategoria dostawcy" />
+          <FormikTextField name="supplierCategory" label="Supplier category" />
         </Grid>
       </Grid>
     </WhiteContainer>

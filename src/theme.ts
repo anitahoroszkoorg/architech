@@ -3,13 +3,13 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#0C5089",
+      main: "#2e4057",
     },
     secondary: {
       main: "#FFFFFF",
     },
     info: {
-      main: "#FBC02D",
+      main: "#2e4057",
     },
     error: {
       main: "#d32f2f",
@@ -20,7 +20,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         contained: {
-          backgroundColor: "#FBC02D",
+          backgroundColor: "#99c24d",
           color: "#FFFFFF",
           fontSize: "1rem",
           "&:hover": {

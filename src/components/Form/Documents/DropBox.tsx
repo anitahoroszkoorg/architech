@@ -31,19 +31,19 @@ function DropBox() {
       <input {...getInputProps()} />
       {isDragActive ? (
         <Typography variant="subtitle2" sx={{ marginTop: 1 }}>
-          Upuść swoje pliki tutaj
+          Drag and drop your files here
         </Typography>
       ) : (
         <>
           <Typography variant="subtitle2" sx={{ marginTop: 1 }}>
-            Przeciągnij i upuść swoje pliki tutaj
+            Drag and drop your files here
           </Typography>
           <Typography
             variant="subtitle2"
             gutterBottom
             sx={{ color: "primary.main", fontWeight: "bold" }}
           >
-            lub przeglądaj pliki na swoim dysku
+            or browse files on your device
           </Typography>
           <DriveFolderUploadIcon fontSize="large" color="disabled" />
         </>

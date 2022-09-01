@@ -9,20 +9,23 @@ function ContactInfo() {
         component="div"
         sx={{ color: "#495057", fontWeight: "bold", mt: 2 }}
       >
-        Dane Kontaktowe
+        Contact information
       </Typography>
       <Grid container>
         <Grid item md={6}>
-          <FormikTextField name="contactName" label="Imię i Nazwisko" />
+          <FormikTextField
+            name="contactName"
+            label="Contact person's full name"
+          />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="contactPosition" label="Stanowisko" />
+          <FormikTextField name="contactPosition" label="Position" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="contactPhoneNumber" label="Telefon" />
+          <FormikTextField name="contactPhoneNumber" label="Phone number" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="contactEmail" label="E-mail  " />
+          <FormikTextField name="contactEmail" label="E-mail address " />
         </Grid>
       </Grid>
     </>

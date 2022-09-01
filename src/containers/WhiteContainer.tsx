@@ -19,7 +19,7 @@ function WhiteContainer({ children, step, safeSetState, isLast }: IProps) {
         {children}
       </Grid>
       {isLast ? (
-        <Grid container xs={11} justifyContent="flex-end">
+        <Grid container xs={11} justifyContent="flex-end" sx={{ mt: 3 }}>
           <ButtonContainer safeSetState={safeSetState} step={step} />
         </Grid>
       ) : null}
