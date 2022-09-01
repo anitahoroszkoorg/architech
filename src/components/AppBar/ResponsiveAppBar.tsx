@@ -1,19 +1,14 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { Grid } from "@mui/material";
-import PageList from "./PageList";
 import Logo from "./Logo";
-import NavMenu from "./NavMenu";
 
 const SmallAppBar = () => {
   return (
-    <Grid container flexDirection="row">
+    <Grid container>
       <Toolbar>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <Logo />
-        </Grid>
-        <Grid container justifyContent="flex-end">
-          <NavMenu />
         </Grid>
       </Toolbar>
     </Grid>
@@ -21,13 +16,10 @@ const SmallAppBar = () => {
 };
 const LargeAppBar = () => {
   return (
-    <Grid container direction="row" alignItems="center">
+    <Grid container>
       <Toolbar>
-        <Grid item xs={2}>
+        <Grid item xs={5}>
           <Logo />
-        </Grid>
-        <Grid container justifyContent="flex-end">
-          <PageList />
         </Grid>
       </Toolbar>
     </Grid>

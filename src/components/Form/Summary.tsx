@@ -35,7 +35,7 @@ function Summary({ step, safeSetState }: IProps) {
               component="div"
               sx={{ color: "primary.main" }}
             >
-              Dziękujemy
+              Thank you
             </Typography>
             <Typography
               variant="body1"
@@ -43,16 +43,11 @@ function Summary({ step, safeSetState }: IProps) {
               component="div"
               sx={{ color: "primary.main" }}
             >
-              Dane z twojej ankiety zostały przesłane do weryfikacji
+              Your questionnaire data has been sent for verification
             </Typography>
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <Typography
-                variant="body1"
-                gutterBottom
-                component="div"
-                sx={{ color: "info.main" }}
-              >
-                Powrót do strony głównej
+            <Link to="/" style={{ textDecorationLine: "underline" }}>
+              <Typography variant="body1" gutterBottom component="div">
+                Click here to go back to main page
               </Typography>
             </Link>
             <Grid item className={classes.pdf}>

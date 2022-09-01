@@ -1,7 +1,5 @@
 import WhiteContainer from "containers/WhiteContainer";
-import GreyContainer from "containers/GreyContainer";
 import Documents from "./Documents";
-import DownloadPdf from "./DownloadPdf";
 import { IState } from "../types";
 
 interface IProps {
@@ -12,12 +10,9 @@ interface IProps {
 function DocumentsPage({ safeSetState, step }: IProps) {
   return (
     <>
-      <WhiteContainer step={step} safeSetState={safeSetState} isLast={false}>
+      <WhiteContainer step={step} safeSetState={safeSetState} isLast>
         <Documents />
       </WhiteContainer>
-      <GreyContainer step={step} safeSetState={safeSetState}>
-        <DownloadPdf />
-      </GreyContainer>
     </>
   );
 }

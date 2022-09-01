@@ -13,9 +13,18 @@ interface IProps {
   safeSetState: (stateUpdate: Partial<IState>) => void;
 }
 export const CurrentForm = ({ state, safeSetState }: IProps): JSX.Element => {
+  const [shouldShowAllFields, setShouldShowAllFields] =
+    useState<boolean>(false);
   switch (state.step) {
     case 1:
-      return <PrimaryInfo step={state.step} safeSetState={safeSetState} />;
+      return (
+        <PrimaryInfo
+          step={state.step}
+          safeSetState={safeSetState}
+          shouldShowAllFields={shouldShowAllFields}
+          setShouldShowAllFields={setShouldShowAllFields}
+        />
+      );
     case 2:
       return <RemainingInfo step={state.step} safeSetState={safeSetState} />;
     case 3:

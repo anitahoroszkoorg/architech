@@ -21,83 +21,83 @@ export const validateNip = (nip: string | undefined): boolean => {
 const formValidationSchema = [
   Yup.object({
     companyName: Yup.string()
-      .min(3, "Musi zawierać conajmniej 3 znaki")
-      .required("Wymagane"),
+      .min(3, "Must contain at least 3 or more characters")
+      .required("Required"),
     nip: Yup.string()
-      .test("test-name", "Nieprawidłowy numer NIP", (value) =>
+      .test("test-name", "Wrong NIP number/format", (value) =>
         validateNip(value)
       )
-      .min(10, "Nieprawidłowy numer NIP")
-      .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
-      .required("Wymagane"),
-    email: Yup.string().email("Nieprawidłowy adres email").required("Wymagane"),
+      .matches(onlyDigitRegex, "Must contain digits only")
+      .required("Required"),
+    email: Yup.string().email("Wrong email address").required("Required"),
+
     phoneNumber: Yup.string()
-      .matches(phoneRegex, "Nieprawidłowy numer telefonu")
-      .required("Wymagane"),
-    street: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
-    city: Yup.string().min(3, "Nieprawidłowy format").required("Wymagane"),
-    buildingNumber: Yup.string()
-      .min(1, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(phoneRegex, "Wrong phone number format")
+      .required("Required"),
+    street: Yup.string().min(3, "Wrong format").required("Required"),
+
+    city: Yup.string().min(3, "Wrong format ").required("Required"),
+
+    buildingNumber: Yup.string().min(1, "Wrong format ").required("Required"),
     zipCode: Yup.string()
-      .matches(zipRegex, "Nieprawidłowy format kodu pocztowego")
-      .required("Wymagane"),
+      .matches(zipRegex, "Wrong zip code format")
+      .required("Required"),
     contactName: Yup.string()
-      .matches(onlyLettersRegex, "Tekst zawiera liczby")
-      .min(3, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(onlyLettersRegex, "Text contains numbers")
+      .min(3, "Must contain at least 3 or more characters")
+      .required("Required"),
     contactPosition: Yup.string()
-      .matches(onlyLettersRegex, "Tekst zawiera liczby")
-      .min(3, "Nieprawidłowy format")
+      .matches(onlyLettersRegex, "Text contains numbers")
+      .min(3, "Must contain at least 3 or more characters")
       .required("Wymagane"),
     contactPhoneNumber: Yup.string()
-      .matches(phoneRegex, "nieprawidłowy numer telefonu")
-      .required("Wymagane"),
+      .matches(phoneRegex, "Wrong phone number format")
+      .required("Required"),
     contactEmail: Yup.string()
-      .email("Nieprawidłowy adres email")
-      .required("Wymagane"),
+      .email("Wrong email address")
+      .required("Required"),
   }),
   Yup.object({
     legalForm: Yup.string().required("Wymagane"),
     accountNumber: Yup.string()
-      .min(26, "Nieprawidłowy numer konta")
-      .max(26, "Nieprawidłowy numer konta")
-      .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
-      .required("Wymagane"),
+      .min(26, "Account number is too short")
+      .max(26, "Account number is too long")
+      .matches(onlyDigitRegex, "Must contain digits only")
+      .required("Required"),
     regon: Yup.string()
-      .min(9, "Nieprawidłowy format")
-      .max(9, "Nieprawidłowy format")
-      .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
-      .required("Wymagane"),
+      .min(9, "REGON number is too short")
+      .max(9, "REGON number is too long")
+      .matches(onlyDigitRegex, "Must contain digits only")
+      .required("Required"),
     taxPayer: Yup.string()
-      .matches(onlyLettersRegex, "Tekst zawiera liczby")
-      .min(3, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(onlyLettersRegex, "Text contains numbers")
+      .min(3, "Must contain at least 3 or more characters")
+      .required("Required"),
     foundingYear: Yup.string()
-      .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
-      .min(4, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(onlyDigitRegex, "Must contain digits only")
+      .min(4, "Must contain 4 characters")
+      .required("Required"),
     supplierCategory: Yup.string().required("Wymagane"),
     employeesAmount: Yup.string()
-      .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
-      .min(1, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(onlyDigitRegex, "Must contain digits only")
+      .min(1, "Wrong format")
+      .required("Required"),
     sumOfSales: Yup.string()
-      .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
-      .min(3, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(onlyDigitRegex, "Must contain digits only")
+      .min(3, "Wrong format")
+      .required("Required"),
     departments: Yup.string()
-      .matches(onlyLettersRegex, "Tekst zawiera liczby")
-      .min(3, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(onlyLettersRegex, "Text contains numbers")
+      .min(3, "Must contain at least 3 or more characters")
+      .required("Required"),
     service: Yup.string()
-      .min(3, "Nieprawidłowy format")
-      .matches(onlyLettersRegex, "Tekst zawiera liczby")
-      .required("Wymagane"),
+      .min(3, "Wrong format")
+      .matches(onlyLettersRegex, "Text contains numbers")
+      .required("Required"),
     equity: Yup.string()
-      .matches(onlyDigitRegex, "Musi składać się wyłącznie z liczb")
-      .min(4, "Nieprawidłowy format")
-      .required("Wymagane"),
+      .matches(onlyDigitRegex, "Must contain digits only")
+      .min(4, "Must contain 4 or more characters")
+      .required("Required"),
   }),
 ];
 

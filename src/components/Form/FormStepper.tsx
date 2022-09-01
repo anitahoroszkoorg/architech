@@ -5,10 +5,10 @@ interface IProps {
   step: number;
 }
 const stepNames = [
-  "Dane Twojej firmy",
-  "Pozostałe informacje",
-  "Wymagane dokumenty",
-  "Podsumowanie",
+  "Your company details",
+  "Remainig information",
+  "Documents",
+  "Summary",
 ];
 
 export default function FormStepper({ step }: IProps) {
