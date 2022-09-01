@@ -96,7 +96,7 @@ const formValidationSchema = [
       .required("Required"),
     equity: Yup.string()
       .matches(onlyDigitRegex, "Must contain digits only")
-      .min(4, "Must contain 3 or more characters")
+      .min(4, "Must contain 4 or more characters")
       .required("Required"),
   }),
 ];

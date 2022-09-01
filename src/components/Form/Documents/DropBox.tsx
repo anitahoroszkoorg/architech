@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     height: 200,
     border: "2px dotted grey",
     borderRadius: 30,
-    marginLeft: 85,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
