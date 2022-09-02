@@ -58,7 +58,6 @@ const formValidationSchema = [
       .required("Required"),
   }),
   Yup.object({
-    legalForm: Yup.string().required("Wymagane"),
     accountNumber: Yup.string()
       .min(26, "Account number is too short")
       .max(26, "Account number is too long")

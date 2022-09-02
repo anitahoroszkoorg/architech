@@ -51,7 +51,6 @@ function FormContainer() {
     contactPosition: "",
     contactPhoneNumber: "",
     contactEmail: "",
-    legalForm: "",
     accountNumber: "",
     regon: "",
     taxPayer: "",

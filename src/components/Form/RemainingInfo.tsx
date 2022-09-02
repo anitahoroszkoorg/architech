@@ -17,7 +17,7 @@ const RemainingInfo = ({ step, safeSetState }: IProps) => {
         component="div"
         sx={{ color: "primary.main" }}
       >
-        Pozostałe informacje
+        Remaining information
       </Typography>
       <Grid container>
         <Grid item md={6}>
