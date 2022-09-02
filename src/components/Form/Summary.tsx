@@ -15,10 +15,15 @@ const useStyles = makeStyles({
     height: 600,
     width: 400,
     textAlign: "center",
-    lineHeight: 35,
   },
   pdfTxt: {
     padding: 20,
+  },
+  pdfMobile: {
+    backgroundColor: "#F1F1F1",
+    height: 300,
+    width: 200,
+    textAlign: "center",
   },
 });
 function Summary({ step, safeSetState }: IProps) {
@@ -50,9 +55,16 @@ function Summary({ step, safeSetState }: IProps) {
                 Click here to go back to main page
               </Typography>
             </Link>
-            <Grid item className={classes.pdf}>
-              PDF
-            </Grid>
+            <Grid
+              item
+              className={classes.pdf}
+              sx={{ display: { xs: "none", md: "flex" } }}
+            ></Grid>
+            <Grid
+              item
+              className={classes.pdfMobile}
+              sx={{ display: { xs: "flex", md: "none" } }}
+            ></Grid>
           </Grid>
         </Grid>
       </WhiteContainer>

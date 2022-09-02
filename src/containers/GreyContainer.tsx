@@ -20,11 +20,27 @@ function GreyContainer({ children, safeSetState, step }: IProps) {
   return (
     <Grid container className={classes.containerStyle}>
       <Divider sx={{ width: "100%" }} />
-      <Grid item xs={3} />
-      <Grid container xs={9}>
+      <Grid item xs={3} sx={{ display: { xs: "none", md: "block" } }} />
+      <Grid container xs={9} sx={{ display: { xs: "none", md: "flex" } }}>
         {children}
       </Grid>
-      <Grid container xs={11} justifyContent="flex-end" sx={{ mt: 3 }}>
+      <Grid container sx={{ display: { xs: "flex", md: "none" }, ml: 5 }}>
+        {children}
+      </Grid>
+      <Grid
+        container
+        xs={11}
+        justifyContent="flex-start"
+        sx={{ mt: 3, ml: 3, display: { xs: "flex", md: "none" } }}
+      >
+        <ButtonContainer safeSetState={safeSetState} step={step} />
+      </Grid>
+      <Grid
+        container
+        xs={11}
+        justifyContent="flex-end"
+        sx={{ mt: 3, ml: 3, display: { xs: "none", md: "flex" } }}
+      >
         <ButtonContainer safeSetState={safeSetState} step={step} />
       </Grid>
     </Grid>

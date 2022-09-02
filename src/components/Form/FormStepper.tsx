@@ -1,6 +1,7 @@
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import { Grid } from "@mui/material";
 interface IProps {
   step: number;
 }
@@ -13,12 +14,18 @@ const stepNames = [
 
 export default function FormStepper({ step }: IProps) {
   return (
-    <Stepper activeStep={step - 1} orientation="vertical" sx={{ ml: 7, mt: 2 }}>
-      {stepNames.map((stepName) => (
-        <Step key={stepName}>
-          <StepLabel>{stepName}</StepLabel>
-        </Step>
-      ))}
-    </Stepper>
+    <Grid item sx={{ display: { xs: "none", md: "block" } }}>
+      <Stepper
+        activeStep={step - 1}
+        orientation="vertical"
+        sx={{ ml: 7, mt: 2 }}
+      >
+        {stepNames.map((stepName) => (
+          <Step key={stepName}>
+            <StepLabel>{stepName}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+    </Grid>
   );
 }
