@@ -37,7 +37,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-
+    "start:cypress": "PORT=3002 BROWSER=none DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "cypress:run:ci": "NO_COLOR=1 cypress run --config video=false",
     "test:ci:cypress": "start-server-and-test 'yarn start:cypress' http://localhost:3002/dp-toolkit 'yarn cypress:run:ci'",
     "eject": "react-scripts eject",
