@@ -21,11 +21,10 @@ describe("My First Test", () => {
   });
   it("Happy path", () => {
     cy.visit("/");
-    cy.contains("Zarejestruj się").click();
+    cy.contains("REGISTER").click();
     cy.url().should("include", "/form");
     cy.get('[id="nip"]').click();
     cy.get('[id="nip"]').type("5252674798");
-
     cy.get('[id="phoneNumber"]').type("123456789");
     cy.get('[id="email"]').type("test@test.com");
     cy.get('[id="contactName"]').type("John Doe");
