@@ -2,6 +2,8 @@ import { Divider, Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import ButtonContainer from "components/Form/FormButton/ButtonContainer";
 import { IState } from "components/Form/types";
+import ContainerGrid from "./ContainerGrid";
+import ButtonGrid from "./ButtonGrid";
 
 interface IProps {
   step: number;
@@ -21,12 +23,10 @@ function GreyContainer({ children, safeSetState, step }: IProps) {
     <Grid container className={classes.containerStyle}>
       <Divider sx={{ width: "100%" }} />
       <Grid item xs={3} />
-      <Grid container xs={9}>
-        {children}
-      </Grid>
-      <Grid container xs={11} justifyContent="flex-end" sx={{ mt: 3 }}>
+      <ContainerGrid>{children}</ContainerGrid>
+      <ButtonGrid>
         <ButtonContainer safeSetState={safeSetState} step={step} />
-      </Grid>
+      </ButtonGrid>
     </Grid>
   );
 }

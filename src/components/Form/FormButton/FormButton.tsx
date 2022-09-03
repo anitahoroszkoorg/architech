@@ -4,12 +4,7 @@ interface IProps {
   changeStep: () => void;
 }
 const FormButton = ({ label, changeStep }: IProps) => (
-  <Button
-    variant="contained"
-    sx={{ mb: 2, ml: 2 }}
-    onClick={changeStep}
-    size="medium"
-  >
+  <Button variant="contained" sx={{ m: 2 }} onClick={changeStep} size="medium">
     {label}
   </Button>
 );

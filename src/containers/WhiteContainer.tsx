@@ -2,6 +2,8 @@ import { Grid } from "@mui/material";
 import FormStepper from "components/Form/FormStepper";
 import { IState } from "components/Form/types";
 import ButtonContainer from "components/Form/FormButton/ButtonContainer";
+import ButtonGrid from "./ButtonGrid";
+import ContainerGrid from "./ContainerGrid";
 
 interface IProps {
   step: number;
@@ -15,13 +17,11 @@ function WhiteContainer({ children, step, safeSetState, isLast }: IProps) {
       <Grid item xs={3}>
         <FormStepper step={step} />
       </Grid>
-      <Grid container xs={9}>
-        {children}
-      </Grid>
+      <ContainerGrid>{children}</ContainerGrid>
       {isLast ? (
-        <Grid container xs={11} justifyContent="flex-end" sx={{ mt: 3 }}>
+        <ButtonGrid>
           <ButtonContainer safeSetState={safeSetState} step={step} />
-        </Grid>
+        </ButtonGrid>
       ) : null}
     </Grid>
   );

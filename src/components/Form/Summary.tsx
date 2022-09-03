@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core";
 import Footer from "components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { IState } from "./types";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface IProps {
   step: number;
@@ -21,42 +23,86 @@ const useStyles = makeStyles({
     padding: 20,
   },
 });
-function Summary({ step, safeSetState }: IProps) {
+function DesktopSummary() {
   const classes = useStyles();
 
   return (
+    <Grid container>
+      <Grid item xs={10} className={classes.pdfTxt}>
+        <Typography
+          variant="h5"
+          gutterBottom
+          component="div"
+          sx={{ color: "primary.main" }}
+        >
+          Thank you!
+        </Typography>
+        <Typography
+          variant="body1"
+          gutterBottom
+          component="div"
+          sx={{ color: "primary.main" }}
+        >
+          Your questionnaire data has been sent for verification
+        </Typography>
+        <Link to="/" style={{ textDecorationLine: "underline" }}>
+          <Typography variant="body1" gutterBottom component="div">
+            Click here to go back to main page
+          </Typography>
+        </Link>
+        <div className={classes.pdf}></div>
+      </Grid>
+    </Grid>
+  );
+}
+function MobileSummary() {
+  return (
+    <Grid container justifyContent="center">
+      <Grid item xs={10}>
+        <Typography
+          variant="h5"
+          gutterBottom
+          component="div"
+          sx={{ color: "primary.main" }}
+        >
+          Thank you!
+        </Typography>
+        <Typography
+          variant="body1"
+          gutterBottom
+          component="div"
+          sx={{ color: "primary.main" }}
+        >
+          Your questionnaire data has been sent for verification
+        </Typography>
+        <Link to="/" style={{ textDecorationLine: "underline" }}>
+          <Typography variant="body1" gutterBottom component="div">
+            Click here to go back to main page
+          </Typography>
+        </Link>
+        <Typography
+          variant="body1"
+          gutterBottom
+          component="div"
+          style={{ textDecorationLine: "underline" }}
+        >
+          Click here to download your PDF file
+        </Typography>
+      </Grid>
+    </Grid>
+  );
+}
+function Summary({ step, safeSetState }: IProps) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.only("xs"));
+  return (
     <>
       <WhiteContainer step={step} safeSetState={safeSetState} isLast>
-        <Grid container>
-          <Grid item xs={10} className={classes.pdfTxt}>
-            <Typography
-              variant="h5"
-              gutterBottom
-              component="div"
-              sx={{ color: "primary.main" }}
-            >
-              Thank you
-            </Typography>
-            <Typography
-              variant="body1"
-              gutterBottom
-              component="div"
-              sx={{ color: "primary.main" }}
-            >
-              Your questionnaire data has been sent for verification
-            </Typography>
-            <Link to="/" style={{ textDecorationLine: "underline" }}>
-              <Typography variant="body1" gutterBottom component="div">
-                Click here to go back to main page
-              </Typography>
-            </Link>
-            <Grid item className={classes.pdf}>
-              PDF
-            </Grid>
-          </Grid>
-        </Grid>
+        {matches ? <MobileSummary /> : <DesktopSummary />}
       </WhiteContainer>
-      <Footer />
+      <Grid item xs={12}>
+        <Footer />
+      </Grid>
     </>
   );
 }
