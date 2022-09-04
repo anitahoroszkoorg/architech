@@ -61,7 +61,7 @@ async def get_single_user(user_id: int, db: Session = Depends(get_db)):
 
 @app.get("/supplier/")
 async def get_single_user():
-    return ["Producent", "Dystrybutor/Hurtownia", "Podwykonawca", "Dostawca usług Sprzętowco-Transportowych"]
+    return ["Manufacturer", "Distributor/Wholesale", "Subcontractor", "Equipment/Transportation services provider"]
 
 
 # {'nip': '1231231'}

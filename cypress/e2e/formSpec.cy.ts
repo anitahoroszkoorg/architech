@@ -19,6 +19,17 @@ describe("My First Test", () => {
       },
     }).as("nipInfo");
   });
+  beforeEach(() => {
+    cy.intercept("GET", "supplier", {
+      statusCode: 201,
+      body: [
+        "Manufacturer",
+        "Distributor/Wholesale",
+        "Subcontractor",
+        "Equipment/Transportation services provider",
+      ],
+    }).as("supplier");
+  });
   it("Happy path", () => {
     cy.visit("/");
     cy.contains("REGISTER").click();
@@ -41,7 +52,7 @@ describe("My First Test", () => {
     cy.get('[id="taxPayer"]').type("lorem ipsum");
     cy.get('[id="foundingYear"]').type("1999");
     cy.get('[id="supplierCategory"]').click();
-    cy.contains("Producent").click();
+    cy.contains("Manufacturer").click();
     cy.contains("next").click();
     cy.contains("next").click();
   });
