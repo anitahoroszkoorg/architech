@@ -1,7 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import WhiteContainer from "containers/WhiteContainer";
-import FormikTextField from "./FormikTextField";
-import { IState } from "./types";
+import FormikTextField from "../FormikTextField";
+import { IState } from "../types";
+import SelectTextField from "./SelectField";
 
 interface IProps {
   step: number;
@@ -38,7 +39,6 @@ const RemainingInfo = ({ step, safeSetState }: IProps) => {
         <Grid item md={6}>
           <FormikTextField name="equity" label="Equity" />
         </Grid>
-
         <Grid item md={6}>
           <FormikTextField name="accountNumber" label="Bank account number" />
         </Grid>
@@ -51,8 +51,8 @@ const RemainingInfo = ({ step, safeSetState }: IProps) => {
         <Grid item md={6}>
           <FormikTextField name="foundingYear" label="Founding year" />
         </Grid>
-        <Grid item md={6}>
-          <FormikTextField name="supplierCategory" label="Supplier category" />
+        <Grid item md={6} xs={12}>
+          <SelectTextField />
         </Grid>
       </Grid>
     </WhiteContainer>

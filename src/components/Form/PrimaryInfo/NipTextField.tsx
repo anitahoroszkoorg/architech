@@ -54,14 +54,12 @@ const NipTextField = ({ name, label, setShouldShowAllFields }: IProps) => {
                 Object.keys(data).forEach((key: string) => {
                   setFieldValue(fieldMap[key], data[key]);
                 });
-                setFieldValue("legalForm", data.legal_form.name);
                 // Hack to wait for new value to be applied
                 // Pending https://github.com/jaredpalmer/formik/issues/529
                 await delay(1);
                 Object.keys(data).forEach((key: string) => {
                   setFieldTouched(fieldMap[key], true);
                 });
-                setFieldValue("legalForm", true);
               });
             setShouldShowAllFields(true);
           }

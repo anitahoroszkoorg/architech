@@ -40,7 +40,8 @@ describe("My First Test", () => {
     cy.get('[id="accountNumber"]').type("12345678901234567890123456");
     cy.get('[id="taxPayer"]').type("lorem ipsum");
     cy.get('[id="foundingYear"]').type("1999");
-    cy.get('[id="supplierCategory"]').type("lorem ipsum");
+    cy.get('[id="supplierCategory"]').click();
+    cy.contains("Producent").click();
     cy.contains("next").click();
     cy.contains("next").click();
   });
