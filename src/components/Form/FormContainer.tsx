@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Formik } from "formik";
 import RemainingInfo from "./RemainingInfo";
 import { Grid } from "@mui/material";
@@ -7,30 +7,29 @@ import Documents from "./Documents";
 import Summary from "./Summary";
 import PrimaryInfo from "./PrimaryInfo";
 import formValidationSchema from "Validation/formValidationSchema";
+import React from "react";
+import { FormContext } from "components/UserContext";
 
 interface IProps {
-  state: IState;
-  safeSetState: (stateUpdate: Partial<IState>) => void;
+  step: number;
 }
-export const CurrentForm = ({ state, safeSetState }: IProps): JSX.Element => {
+export const CurrentForm = ({ step }: IProps): JSX.Element => {
   const [shouldShowAllFields, setShouldShowAllFields] =
     useState<boolean>(false);
-  switch (state.step) {
+  switch (step) {
     case 1:
       return (
         <PrimaryInfo
-          step={state.step}
-          safeSetState={safeSetState}
           shouldShowAllFields={shouldShowAllFields}
           setShouldShowAllFields={setShouldShowAllFields}
         />
       );
     case 2:
-      return <RemainingInfo step={state.step} safeSetState={safeSetState} />;
+      return <RemainingInfo />;
     case 3:
-      return <Documents step={state.step} safeSetState={safeSetState} />;
+      return <Documents />;
     case 4:
-      return <Summary step={state.step} safeSetState={safeSetState} />;
+      return <Summary />;
     default:
       return <></>;
   }
@@ -39,28 +38,6 @@ export const CurrentForm = ({ state, safeSetState }: IProps): JSX.Element => {
 function FormContainer() {
   const [state, setState] = useState<IState>({
     step: 1,
-    companyName: "",
-    nip: "",
-    phoneNumber: "",
-    email: "",
-    street: "",
-    city: "",
-    buildingNumber: "",
-    zipCode: "",
-    contactName: "",
-    contactPosition: "",
-    contactPhoneNumber: "",
-    contactEmail: "",
-    accountNumber: "",
-    regon: "",
-    taxPayer: "",
-    foundingYear: "",
-    supplierCategory: "",
-    employeesAmount: "",
-    sumOfSales: "",
-    departments: "",
-    service: "",
-    equity: "",
   });
   const currentValidationSchema = formValidationSchema[state.step - 1];
 
@@ -81,7 +58,11 @@ function FormContainer() {
           {() => (
             <>
               <Grid container>
-                <CurrentForm safeSetState={safeSetState} state={state} />
+                <FormContext.Provider
+                  value={{ step: state.step, safeSetState: safeSetState }}
+                >
+                  <CurrentForm step={state.step} />
+                </FormContext.Provider>
               </Grid>
             </>
           )}

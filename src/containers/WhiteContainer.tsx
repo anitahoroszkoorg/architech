@@ -6,21 +6,19 @@ import ButtonGrid from "./ButtonGrid";
 import ContainerGrid from "./ContainerGrid";
 
 interface IProps {
-  step: number;
   children: React.ReactNode;
-  safeSetState: (stateUpdate: Partial<IState>) => void;
   isLast: boolean;
 }
-function WhiteContainer({ children, step, safeSetState, isLast }: IProps) {
+function WhiteContainer({ children, isLast }: IProps) {
   return (
     <Grid container>
       <Grid item xs={3}>
-        <FormStepper step={step} />
+        <FormStepper />
       </Grid>
       <ContainerGrid>{children}</ContainerGrid>
       {isLast ? (
         <ButtonGrid>
-          <ButtonContainer safeSetState={safeSetState} step={step} />
+          <ButtonContainer />
         </ButtonGrid>
       ) : null}
     </Grid>

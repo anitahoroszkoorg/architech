@@ -8,9 +8,9 @@ interface IProps {
   safeSetState: (stateUpdate: Partial<IState>) => void;
 }
 
-const RemainingInfo = ({ step, safeSetState }: IProps) => {
+const RemainingInfo = () => {
   return (
-    <WhiteContainer step={step} safeSetState={safeSetState} isLast>
+    <WhiteContainer isLast>
       <Typography
         variant="h6"
         gutterBottom

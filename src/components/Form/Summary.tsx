@@ -92,12 +92,12 @@ function MobileSummary() {
     </Grid>
   );
 }
-function Summary({ step, safeSetState }: IProps) {
+function Summary() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.only("xs"));
   return (
     <>
-      <WhiteContainer step={step} safeSetState={safeSetState} isLast>
+      <WhiteContainer isLast>
         {matches ? <MobileSummary /> : <DesktopSummary />}
       </WhiteContainer>
       <Grid item xs={12}>
