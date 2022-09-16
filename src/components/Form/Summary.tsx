@@ -3,14 +3,9 @@ import WhiteContainer from "containers/WhiteContainer";
 import { makeStyles } from "@material-ui/core";
 import Footer from "components/Footer/Footer";
 import { Link } from "react-router-dom";
-import { IState } from "./types";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-interface IProps {
-  step: number;
-  safeSetState: (stateUpdate: Partial<IState>) => void;
-}
 const useStyles = makeStyles({
   pdf: {
     backgroundColor: "#F1F1F1",

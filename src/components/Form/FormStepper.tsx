@@ -5,9 +5,6 @@ import { Grid } from "@mui/material";
 import { FormContext } from "components/Hooks/FormContext";
 import { useContext } from "react";
 
-interface IProps {
-  step: number;
-}
 const stepNames = [
   "Your company details",
   "Remainig information",
