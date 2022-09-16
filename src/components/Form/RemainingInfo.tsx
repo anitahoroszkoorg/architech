@@ -1,12 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import WhiteContainer from "containers/WhiteContainer";
 import FormikTextField from "./FormikTextField";
-import { IState } from "./types";
-
-interface IProps {
-  step: number;
-  safeSetState: (stateUpdate: Partial<IState>) => void;
-}
 
 const RemainingInfo = () => {
   return (

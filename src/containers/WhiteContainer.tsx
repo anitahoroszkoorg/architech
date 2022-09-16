@@ -1,6 +1,5 @@
 import { Grid } from "@mui/material";
 import FormStepper from "components/Form/FormStepper";
-import { IState } from "components/Form/types";
 import ButtonContainer from "components/Form/FormButton/ButtonContainer";
 import ButtonGrid from "./ButtonGrid";
 import ContainerGrid from "./ContainerGrid";

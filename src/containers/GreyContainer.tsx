@@ -1,7 +1,6 @@
 import { Divider, Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import ButtonContainer from "components/Form/FormButton/ButtonContainer";
-import { IState } from "components/Form/types";
 import ContainerGrid from "./ContainerGrid";
 import ButtonGrid from "./ButtonGrid";
 

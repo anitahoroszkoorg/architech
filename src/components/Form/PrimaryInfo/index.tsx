@@ -11,14 +11,14 @@ interface IProps {
 function PrimaryInfo({ shouldShowAllFields, setShouldShowAllFields }: IProps) {
   return (
     <>
-      <WhiteContainer  isLast={false}>
+      <WhiteContainer isLast={false}>
         <CompanyInfo
           shouldShowAllFields={shouldShowAllFields}
           setShouldShowAllFields={setShouldShowAllFields}
         />
       </WhiteContainer>
       {shouldShowAllFields ? (
-        <GreyContainer >
+        <GreyContainer>
           <ContactInfo />
         </GreyContainer>
       ) : null}

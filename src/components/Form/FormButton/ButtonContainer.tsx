@@ -1,6 +1,6 @@
 import FormButton from "./FormButton";
 import { useFormikContext } from "formik";
-import { FormContext } from "components/UserContext";
+import { FormContext } from "components/Hooks/FormContext";
 import { useContext } from "react";
 function scrollToTop() {
   window.scrollTo({
@@ -9,7 +9,7 @@ function scrollToTop() {
   });
 }
 function ButtonContainer() {
-  const { step, safeSetState } = useContext(FormContext);
+  const { step, setStep } = useContext(FormContext);
 
   const { validateForm, setFieldTouched } = useFormikContext();
 
@@ -18,7 +18,7 @@ function ButtonContainer() {
   const shouldShowNextButton = () => step < 4;
 
   const changeStep = (stepChange: number) => {
-    safeSetState({ step: step + stepChange });
+    setStep(step + stepChange);
   };
   return (
     <>
