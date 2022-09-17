@@ -12,20 +12,12 @@ jobs:
       - name: install yarn
         run: npm install --global yarn
 
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-modules-
-
       - name: install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile --cache-folder ~/.yarn
+        run: yarn install
 
       - name: run eslint check
         run: yarn eslint . --max-warnings=0
+
   cypress_test:
     runs-on: ubuntu-latest
     steps:

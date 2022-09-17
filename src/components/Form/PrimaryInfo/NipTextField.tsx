@@ -2,10 +2,14 @@ import { FormHelperText, TextField } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 import { makeStyles } from "@material-ui/core";
 import { validateNip } from "Validation/formValidationSchema";
+import { NipInfoResponse, useApiService } from "hooks/useApi";
+import { toast } from "react-toastify";
+
 interface IProps {
   name: string;
   label: string;
   setShouldShowAllFields: (shouldShowAllFields: boolean) => void;
+  setIsLoading: (isLoading: boolean) => void;
 }
 const useStyles = makeStyles({
   whiteFieldStyle: {
@@ -14,10 +18,17 @@ const useStyles = makeStyles({
 });
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-const NipTextField = ({ name, label, setShouldShowAllFields }: IProps) => {
+const NipTextField = ({
+  name,
+  label,
+  setShouldShowAllFields,
+  setIsLoading,
+}: IProps) => {
   const [field, meta] = useField(name);
   const { setFieldValue, setFieldTouched } = useFormikContext();
   const classes = useStyles();
+  const { getNipInfo } = useApiService();
+
   return (
     <>
       <p>{label}</p>
@@ -28,42 +39,44 @@ const NipTextField = ({ name, label, setShouldShowAllFields }: IProps) => {
         variant="outlined"
         size="small"
         {...field}
-        onChange={(e) => {
+        onChange={async (e) => {
           field.onChange(e);
-          const input = {
-            nip: e.target.value,
-          };
+
           if (validateNip(e.target.value)) {
-            fetch("http://127.0.0.1:8000/nip-info/", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(input),
-            })
-              .then((response) => response.json())
-              .then(async (data) => {
-                const fieldMap: { [key: string]: string } = {
-                  name: "companyName",
-                  address: "street",
-                  city: "city",
-                  address_number: "buildingNumber",
-                  postal_code: "zipCode",
-                  regon: "regon",
-                };
-                Object.keys(data).forEach((key: string) => {
-                  setFieldValue(fieldMap[key], data[key]);
-                });
-                setFieldValue("legalForm", data.legal_form.name);
-                // Hack to wait for new value to be applied
-                // Pending https://github.com/jaredpalmer/formik/issues/529
-                await delay(1);
-                Object.keys(data).forEach((key: string) => {
-                  setFieldTouched(fieldMap[key], true);
-                });
-                setFieldValue("legalForm", true);
+            setIsLoading(true);
+            setShouldShowAllFields(false);
+
+            try {
+              const data = await getNipInfo({ nip: e.target.value });
+              const fieldMap: { [key: string]: string } = {
+                name: "companyName",
+                address: "street",
+                city: "city",
+                address_number: "buildingNumber",
+                postal_code: "zipCode",
+                regon: "regon",
+              };
+              Object.keys(data).forEach((key) => {
+                setFieldValue(
+                  fieldMap[key],
+                  data[key as keyof NipInfoResponse]
+                );
               });
-            setShouldShowAllFields(true);
+              setFieldValue("legalForm", data.legal_form.name);
+              // Hack to wait for new value to be applied
+              // Pending https://github.com/jaredpalmer/formik/issues/529
+              await delay(1);
+              Object.keys(data).forEach((key: string) => {
+                setFieldTouched(fieldMap[key], true);
+              });
+              setFieldValue("legalForm", true);
+              setShouldShowAllFields(true);
+            } catch (e: unknown) {
+              setShouldShowAllFields(true);
+
+              toast.error("Something went wrong!");
+            }
+            setIsLoading(false);
           }
         }}
       />
