@@ -30,11 +30,11 @@ export default function SelectTextField() {
           </MenuItem>
         ))}
       </TextField>
-      {meta.touched && Boolean(meta.error) ? (
+      {meta.touched && Boolean(meta.error) && (
         <FormHelperText sx={{ color: "error.main" }}>
           {meta.error}
         </FormHelperText>
-      ) : null}
+      )}
     </>
   );
 }
