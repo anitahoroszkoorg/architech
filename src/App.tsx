@@ -3,14 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import FormPage from "./pages/FormPage";
-import { ApiProvider } from "hooks/useApi";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { ApiContext, context } from "hooks/ApiContext";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <ApiProvider>
+      <ApiContext.Provider value={context}>
         <ToastContainer />
         <BrowserRouter>
           <Routes>
@@ -18,7 +17,7 @@ function App() {
             <Route path="form" element={<FormPage />} />
           </Routes>
         </BrowserRouter>
-      </ApiProvider>
+      </ApiContext.Provider>
     </ThemeProvider>
   );
 }

@@ -2,8 +2,9 @@ import { FormHelperText, TextField } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 import { makeStyles } from "@material-ui/core";
 import { validateNip } from "Validation/formValidationSchema";
-import { NipInfoResponse, useApiService } from "hooks/useApi";
 import { toast } from "react-toastify";
+import { ApiContext, NipInfoResponse } from "hooks/ApiContext";
+import { useContext } from "react";
 
 interface IProps {
   name: string;
@@ -27,7 +28,7 @@ const NipTextField = ({
   const [field, meta] = useField(name);
   const { setFieldValue, setFieldTouched } = useFormikContext();
   const classes = useStyles();
-  const { getNipInfo } = useApiService();
+  const { getNipInfo } = useContext(ApiContext);
 
   return (
     <>

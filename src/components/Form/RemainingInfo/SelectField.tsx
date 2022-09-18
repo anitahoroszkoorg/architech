@@ -1,17 +1,23 @@
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useField } from "formik";
 import { FormHelperText } from "@mui/material";
+import { ApiContext } from "hooks/ApiContext";
 
 export default function SelectTextField() {
   const [field, meta] = useField("supplierCategory");
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const { getSupplierInfo } = useContext(ApiContext);
+
   console.log(field);
   useEffect(() => {
-    fetch("http://localhost:8000/supplier/")
-      .then((response) => response.json())
-      .then((data) => setCategories(data));
+    async function fetchMyAPI() {
+      const data = await getSupplierInfo();
+      setCategories(data);
+    }
+
+    fetchMyAPI();
   }, []);
   return (
     <>
