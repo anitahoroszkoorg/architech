@@ -1,14 +1,11 @@
 import { Divider, Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import ButtonContainer from "components/Form/FormButton/ButtonContainer";
-import { IState } from "components/Form/types";
 import ContainerGrid from "./ContainerGrid";
 import ButtonGrid from "./ButtonGrid";
 
 interface IProps {
-  step: number;
   children: JSX.Element | JSX.Element[];
-  safeSetState: (stateUpdate: Partial<IState>) => void;
 }
 
 const useStyles = makeStyles({
@@ -17,7 +14,7 @@ const useStyles = makeStyles({
     marginTop: 30,
   },
 });
-function GreyContainer({ children, safeSetState, step }: IProps) {
+function GreyContainer({ children }: IProps) {
   const classes = useStyles();
   return (
     <Grid container className={classes.containerStyle}>
@@ -25,7 +22,7 @@ function GreyContainer({ children, safeSetState, step }: IProps) {
       <Grid item xs={3} />
       <ContainerGrid>{children}</ContainerGrid>
       <ButtonGrid>
-        <ButtonContainer safeSetState={safeSetState} step={step} />
+        <ButtonContainer />
       </ButtonGrid>
     </Grid>
   );

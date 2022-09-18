@@ -1,17 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 import WhiteContainer from "containers/WhiteContainer";
 import FormikTextField from "../FormikTextField";
-import { IState } from "../types";
 import SelectTextField from "./SelectField";
 
-interface IProps {
-  step: number;
-  safeSetState: (stateUpdate: Partial<IState>) => void;
-}
-
-const RemainingInfo = ({ step, safeSetState }: IProps) => {
+const RemainingInfo = () => {
   return (
-    <WhiteContainer step={step} safeSetState={safeSetState} isLast>
+    <WhiteContainer isLast>
       <Typography
         variant="h6"
         gutterBottom

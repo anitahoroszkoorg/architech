@@ -1,18 +1,16 @@
 import FormButton from "./FormButton";
-import { IState } from "../types";
 import { useFormikContext } from "formik";
-
-interface IProps {
-  safeSetState: (stateUpdate: Partial<IState>) => void;
-  step: number;
-}
+import { useContext } from "react";
+import { FormContext } from "hooks/FormContext";
 function scrollToTop() {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 }
-function ButtonContainer({ safeSetState, step }: IProps) {
+function ButtonContainer() {
+  const { step, setStep } = useContext(FormContext);
+
   const { validateForm, setFieldTouched } = useFormikContext();
 
   const shouldShowBackButton = () => step > 1 && step < 4;
@@ -20,7 +18,7 @@ function ButtonContainer({ safeSetState, step }: IProps) {
   const shouldShowNextButton = () => step < 4;
 
   const changeStep = (stepChange: number) => {
-    safeSetState({ step: step + stepChange });
+    setStep(step + stepChange);
   };
   return (
     <>
