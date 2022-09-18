@@ -35,11 +35,19 @@ export function useApiService() {
     const responseJson = await r.json();
     return responseJson;
   };
-  return { getNipInfo };
+  const getSupplierInfo = async (
+  ): Promise<any> => {
+    const r = await fetch(`${baseURL}/supplier/`, {
+      method: "GET"
+    });
+    const responseJson = await r.json();
+    return responseJson;
+  };
+  return { getNipInfo, getSupplierInfo };
 }
 
-export const [ApiProvider, getNipInfo] = constate(
+export const [ApiProvider, getNipInfo, getSupplierInfo] = constate(
   useApiService,
-
-  (apiService) => apiService.getNipInfo
+  (apiService: any) => apiService.getNipInfo,
+  (apiService: any) => apiService.getSupplierInfo
 );
