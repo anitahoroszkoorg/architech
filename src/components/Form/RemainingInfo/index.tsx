@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import WhiteContainer from "containers/WhiteContainer";
-import FormikTextField from "./FormikTextField";
+import FormikTextField from "../FormikTextField";
+import SelectTextField from "./SelectField";
 
 const RemainingInfo = () => {
   return (
@@ -32,7 +33,6 @@ const RemainingInfo = () => {
         <Grid item md={6}>
           <FormikTextField name="equity" label="Equity" />
         </Grid>
-
         <Grid item md={6}>
           <FormikTextField name="accountNumber" label="Bank account number" />
         </Grid>
@@ -45,8 +45,8 @@ const RemainingInfo = () => {
         <Grid item md={6}>
           <FormikTextField name="foundingYear" label="Founding year" />
         </Grid>
-        <Grid item md={6}>
-          <FormikTextField name="supplierCategory" label="Supplier category" />
+        <Grid item md={6} xs={12}>
+          <SelectTextField />
         </Grid>
       </Grid>
     </WhiteContainer>

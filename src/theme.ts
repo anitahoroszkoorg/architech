@@ -37,6 +37,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          maxWidth: "25ch",
+        },
+      },
+    },
   },
 });
 

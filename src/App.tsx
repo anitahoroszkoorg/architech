@@ -12,7 +12,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <ApiProvider>
         <ToastContainer />
-
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />

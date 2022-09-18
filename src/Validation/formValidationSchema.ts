@@ -76,7 +76,7 @@ const formValidationSchema = [
       .matches(onlyDigitRegex, "Must contain digits only")
       .min(4, "Must contain 4 characters")
       .required("Required"),
-    supplierCategory: Yup.string().required("Wymagane"),
+    supplierCategory: Yup.string().required("Required"),
     employeesAmount: Yup.string()
       .matches(onlyDigitRegex, "Must contain digits only")
       .min(1, "Wrong format")
