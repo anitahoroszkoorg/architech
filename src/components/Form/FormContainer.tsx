@@ -15,6 +15,7 @@ interface IProps {
 export const CurrentForm = ({ state, safeSetState }: IProps): JSX.Element => {
   const [shouldShowAllFields, setShouldShowAllFields] =
     useState<boolean>(false);
+  console.log(process.env);
   switch (state.step) {
     case 1:
       return (

@@ -1,9 +1,9 @@
 import image from "images/imagegrid.png";
 import { Button, Typography } from "@mui/material";
 import { Grid } from "@material-ui/core";
-import logo from "images/logo.png";
 import { makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { imageGrid, logo } from "config";
 
 const useStyles = makeStyles({
   typoStyle: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     alignItems: "center",
-    backgroundImage: `url(${image})`,
+    backgroundImage: `url(${imageGrid})`,
     height: "100vh",
   },
   logo: {

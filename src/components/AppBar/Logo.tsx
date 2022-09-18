@@ -1,6 +1,6 @@
-import logo from "images/logo.png";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
+import { logo } from "config";
 
 const useStyles = makeStyles({
   logoStyle: {
