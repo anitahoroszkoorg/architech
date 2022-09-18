@@ -2,9 +2,9 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { Grid } from "@mui/material";
-interface IProps {
-  step: number;
-}
+import { FormContext } from "hooks/FormContext";
+import { useContext } from "react";
+
 const stepNames = [
   "Your company details",
   "Remainig information",
@@ -12,7 +12,9 @@ const stepNames = [
   "Summary",
 ];
 
-export default function FormStepper({ step }: IProps) {
+export default function FormStepper() {
+  const { step } = useContext(FormContext);
+
   return (
     <Grid item sx={{ display: { md: "block", xs: "none" } }}>
       <Stepper
