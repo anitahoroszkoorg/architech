@@ -6,7 +6,7 @@ import Documents from "./Documents";
 import Summary from "./Summary";
 import PrimaryInfo from "./PrimaryInfo";
 import formValidationSchema from "Validation/formValidationSchema";
-import { FormContext } from "components/Hooks/FormContext";
+import { FormContext } from "hooks/FormContext";
 
 interface IProps {
   step: number;
