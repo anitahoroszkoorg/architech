@@ -34,13 +34,16 @@ const NipTextField = ({ name, label, setShouldShowAllFields }: IProps) => {
             nip: e.target.value,
           };
           if (validateNip(e.target.value)) {
-            fetch("http://127.0.0.1:8000/nip-info/", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(input),
-            })
+            fetch(
+              "https://europe-central2-architech-362918.cloudfunctions.net/nip-info/",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(input),
+              }
+            )
               .then((response) => response.json())
               .then(async (data) => {
                 const fieldMap: { [key: string]: string } = {

@@ -1,2 +1,2 @@
-from requests import request
-request(method='GET' , url='https://api.kanye.rest/').json()
+import json
+json.dumps(["Producent", "Dystrybutor/Hurtownia", "Podwykonawca", "Dostawca usług Sprzętowco-Transportowych"])
