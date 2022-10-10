@@ -12,15 +12,7 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP }}
 
-      - name: "Set up Cloud SDK"
-        uses: google-github-actions/setup-gcloud@v0
+      - id: "deploy"
+        uses: "google-github-actions/deploy-appengine@v0"
         with:
-          project_id: architech-362918
-      - name: "deploy"
-        run: |
-          cd backend
-          gcloud config get-value compute/region
-          export CLOUDSDK_COMPUTE_REGION=europe-central2
-          gcloud config set compute/region REGION=europe-central2
-          ls
-          gcloud app deploy  --quiet
+          working_directory: backend/
