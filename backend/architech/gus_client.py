@@ -1,4 +1,5 @@
 import os
+from faker import Faker
 
 from bs4 import BeautifulSoup, Tag
 from requests import Session
@@ -16,6 +17,7 @@ ENDPOINT_SANDBOX = 'https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzew
 class CompanyNotFoundError(Exception):
     pass
 
+fake = Faker()
 
 class GUS(object):
     endpoint = ENDPOINT
@@ -122,31 +124,22 @@ class GUS(object):
 
 
 def fetch_data_from_gus(nip, db):
-    print('FETCHING FROM API')
-    gus_client = GUS(os.environ.get('GUS_API_KEY'))
-    response = gus_client.search(nip=nip)
 
-    postal_code = response['adsiedzkodpocztowy']
-    postal_code = f'{postal_code[:2]}-{postal_code[2:]}'
-
-    legal_form = response.get('podstawowaformaprawna_symbol', '9')
-    specific_legal_form = response.get('szczegolnaformaprawna_symbol', '099')
 
     result = {
-        'name': response['nazwa'],
-        'address': response['adsiedzulica_nazwa'],
-        'address_number': response['adsiedznumernieruchomosci'],
-        'local_number': response['adsiedznumerlokalu'],
-        'city': response['adsiedzmiejscowosc_nazwa'],
-        'regon': response['regon9'],
-        'postal_code': postal_code,
+        'name': fake.company(),
+        'address': fake.street_name(),
+        'address_number': fake.building_number(),
+        'local_number': fake.building_number(),
+        'city': fake.city(),
+        'regon': '520338699',
+        'postal_code': '12-234',
         'legal_form': {
-            'name': LEGAL_FORMS[legal_form],
+            'name': 'osoba prawna',
         },
 
         'specific_legal_form': {
-            'name': SPECIFIC_LEGAL_FORMS[specific_legal_form],
+            'name': 'spółki z ograniczoną odpowiedzialnością',
         },
     }
-    crud.save_gus_response(nip=nip, result=result, db=db)
     return result

@@ -69,10 +69,9 @@ async def get_single_user():
 # {'nip': '1231231'}
 
 @app.post("/nip-info/")
-def create_user(nip: schemas.Nip, db: Session = Depends(get_db)):
+def nip_info(nip: schemas.Nip, db: Session = Depends(get_db)):
     time.sleep(1)
-    nip_info = crud.get_nip_info_from_db(db=db, nip=nip.nip)
-    if not nip_info:
-        nip_info = fetch_data_from_gus(db=db, nip=nip.nip)
+
+    nip_info = fetch_data_from_gus(db=db, nip=nip.nip)
 
     return nip_info
