@@ -51,10 +51,9 @@ def get_nip_info_from_db(db: Session, nip: str):
         return None
 
 
-def save_gus_response(db, nip, result):
+def save_gus_response(db, nip):
     nip_info = models.NipInfo(
         nip=nip,
-        result=result
     )
     db.add(nip_info)
     db.commit()

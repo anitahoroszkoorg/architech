@@ -1,4 +1,5 @@
 import time
+from typing import List
 
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI
@@ -24,6 +25,7 @@ app = FastAPI()
 
 origins = ["*"]
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -35,7 +37,7 @@ app.add_middleware(
 load_dotenv()
 
 
-@app.get("/users/", response_model=list[schemas.UserResponse])
+@app.get("/users/", response_model=List[schemas.UserResponse])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = crud.get_users(db, skip=skip, limit=limit)
     return users
@@ -69,10 +71,9 @@ async def get_single_user():
 # {'nip': '1231231'}
 
 @app.post("/nip-info/")
-def create_user(nip: schemas.Nip, db: Session = Depends(get_db)):
+def nip_info(nip: schemas.Nip, db: Session = Depends(get_db)):
     time.sleep(1)
-    nip_info = crud.get_nip_info_from_db(db=db, nip=nip.nip)
-    if not nip_info:
-        nip_info = fetch_data_from_gus(db=db, nip=nip.nip)
+
+    nip_info = fetch_data_from_gus(db=db, nip=nip.nip)
 
     return nip_info

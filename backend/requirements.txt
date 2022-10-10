@@ -1,8 +1,12 @@
 SQLAlchemy==1.4.39
 psycopg2==2.9.3
-uvicorn==0.18.2
+uvicorn
 fastapi==0.79.0
 bs4
 requests
 zeep
 python-dotenv
+gunicorn
+Faker==15.0.0
+starlette==0.14.2
+anyio
