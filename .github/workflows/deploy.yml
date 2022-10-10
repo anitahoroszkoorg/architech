@@ -20,6 +20,6 @@ jobs:
         run: |
           cd backend
           gcloud config get-value compute/region
-
+          export CLOUDSDK_COMPUTE_REGION=europe-central2
           ls
           gcloud app deploy  --quiet
