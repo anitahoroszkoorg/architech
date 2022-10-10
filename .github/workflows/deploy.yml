@@ -16,5 +16,5 @@ jobs:
         uses: "google-github-actions/setup-gcloud@v0"
       - name: "cd backend"
         run: "cd backend"
-      - name: "deploy"
-        run: "ls"
+      - id: "deploy"
+        uses: "google-github-actions/deploy-appengine@v0"
