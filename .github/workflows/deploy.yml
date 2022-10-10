@@ -19,8 +19,39 @@ jobs:
       - name: "deploy"
         run: |
           cd backend
-          gcloud config get-value compute/region
-          export CLOUDSDK_COMPUTE_REGION=europe-central2
-          gcloud config set compute/region REGION=europe-central2
-          ls
           gcloud app deploy  --quiet
+  deploy_frontend:
+    name: deploy frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: "auth"
+        name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v0"
+        with:
+          credentials_json: ${{ secrets.GCP }}
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v0"
+      - name: "Use gcloud CLI"
+        run: "gcloud info"
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: install yarn
+        run: npm install --global yarn
+
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-
+      - name: install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --cache-folder ~/.yarn
+      - name: yarn build
+        run: yarn build
+      - name: deploy
+        run: gcloud app deploy app.yaml --quiet
