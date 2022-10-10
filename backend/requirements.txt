@@ -8,3 +8,4 @@ zeep
 python-dotenv
 gunicorn
 Faker==15.0.0
+starlette==0.14.2

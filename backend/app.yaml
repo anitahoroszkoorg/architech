@@ -1,4 +1,4 @@
 runtime: python37
 service: backend
-entrypoint: gunicorn -b 0.0.0.0:$PORT -w 4 -k uvicorn.workers.UvicornWorker main:app
+entrypoint: gunicorn --workers 1 --worker-class uvicorn.workers.UvicornWorker --bind :$PORT main:application
 instance_class: F2
