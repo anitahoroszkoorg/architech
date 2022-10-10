@@ -1,4 +1,3 @@
-import image from "images/imagegrid.png";
 import { Button, Typography } from "@mui/material";
 import { Grid } from "@material-ui/core";
 import { imageGrid, logo } from "config";
