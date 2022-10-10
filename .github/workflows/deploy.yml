@@ -23,4 +23,4 @@ jobs:
           export CLOUDSDK_COMPUTE_REGION=europe-central2
           gcloud config set compute/region REGION=europe-central2
           ls
-          gcloud app deploy  --quiet --log-http --verbosity=debug
+          gcloud app deploy  --quiet
