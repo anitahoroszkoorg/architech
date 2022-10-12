@@ -1,7 +1,7 @@
 import ResponsiveAppBar from "../AppBar/ResponsiveAppBar";
 import FormContainer from "./FormContainer";
-import { form } from "config";
 import { makeStyles } from "@mui/styles";
+import { form } from "config";
 const useStyles = makeStyles({
   imgStyle: {
     height: "40vh",
