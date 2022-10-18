@@ -5,6 +5,7 @@ import Footer from "components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Contract from "components/Contract";
 
 const useStyles = makeStyles({
   pdf: {
@@ -23,6 +24,7 @@ function DesktopSummary() {
 
   return (
     <Grid container>
+      <Contract />
       <Grid item xs={10} className={classes.pdfTxt}>
         <Typography
           variant="h5"
