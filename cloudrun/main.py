@@ -13,6 +13,7 @@ from flask import send_file, current_app as app
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 class CloudStorageClient:
