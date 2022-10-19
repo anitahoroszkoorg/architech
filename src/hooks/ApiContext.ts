@@ -61,7 +61,7 @@ const getNipInfo = async (
 };
 const submitInfo = async (
   requestBody: SubmitInfoRequestBody
-): Promise<Blob> => {
+): Promise<string> => {
   const r = await fetch(`${submitURL}`, {
     method: "POST",
     headers: {
@@ -69,7 +69,7 @@ const submitInfo = async (
     },
     body: JSON.stringify(requestBody),
   });
-  const responseJson = await r.blob();
+  const responseJson = await r.text();
   return responseJson;
 };
 const getSupplierInfo = async (): Promise<string[]> => {
