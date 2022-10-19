@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Contract from "components/Contract";
+import { ApiContext, SubmitInfoRequestBody } from "hooks/ApiContext";
+import { useContext } from "react";
+import { useFormikContext } from "formik";
 
 const useStyles = makeStyles({
   pdf: {
@@ -21,10 +24,23 @@ const useStyles = makeStyles({
 });
 function DesktopSummary() {
   const classes = useStyles();
-
+  const { submitInfo } = useContext(ApiContext);
+  const { values } = useFormikContext<SubmitInfoRequestBody>();
+  console.log("przed");
+  console.log(values);
   return (
     <Grid container>
       <Contract />
+
+      <button
+        onClick={async () => {
+          const r = await submitInfo(values);
+          console.log("tutaj");
+          console.log(r);
+        }}
+      >
+        test
+      </button>
       <Grid item xs={10} className={classes.pdfTxt}>
         <Typography
           variant="h5"

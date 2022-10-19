@@ -5,6 +5,7 @@ const Contract = () => {
   const { submitInfo } = useContext(ApiContext);
   const { values } = useFormikContext();
   console.log(values);
+  // submitInfo(values)
   return <></>;
 };
 

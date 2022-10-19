@@ -6,30 +6,28 @@ interface NipInfoRequestBody {
 }
 
 export interface SubmitInfoRequestBody {
-  values: {
-    accountNumber: string;
-    buildingNumber: string;
-    city: string;
-    companyName: string;
-    contactEmail: string;
-    contactName: string;
-    contactPhoneNumber: string;
-    contactPosition: string;
-    departments: string;
-    email: string;
-    employeesAmount: string;
-    equity: string;
-    foundingYear: string;
-    nip: string;
-    phoneNumber: string;
-    regon: string;
-    service: string;
-    street: string;
-    sumOfSales: string;
-    supplierCategory: string;
-    taxPayer: string;
-    zipCode: string;
-  };
+  accountNumber: string;
+  buildingNumber: string;
+  city: string;
+  companyName: string;
+  contactEmail: string;
+  contactName: string;
+  contactPhoneNumber: string;
+  contactPosition: string;
+  departments: string;
+  email: string;
+  employeesAmount: string;
+  equity: string;
+  foundingYear: string;
+  nip: string;
+  phoneNumber: string;
+  regon: string;
+  service: string;
+  street: string;
+  sumOfSales: string;
+  supplierCategory: string;
+  taxPayer: string;
+  zipCode: string;
 }
 
 export interface NipInfoResponse {
@@ -61,7 +59,9 @@ const getNipInfo = async (
   const responseJson = await r.json();
   return responseJson;
 };
-const submitInfo = async (requestBody: SubmitInfoRequestBody): Promise<any> => {
+const submitInfo = async (
+  requestBody: SubmitInfoRequestBody
+): Promise<Blob> => {
   const r = await fetch(`${submitURL}`, {
     method: "POST",
     headers: {
@@ -69,7 +69,7 @@ const submitInfo = async (requestBody: SubmitInfoRequestBody): Promise<any> => {
     },
     body: JSON.stringify(requestBody),
   });
-  const responseJson = await r.text();
+  const responseJson = await r.blob();
   return responseJson;
 };
 const getSupplierInfo = async (): Promise<string[]> => {
