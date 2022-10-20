@@ -1,5 +1,25 @@
+import { useFormikContext } from "formik";
+import { ApiContext, SubmitInfoRequestBody } from "hooks/ApiContext";
+import { useContext, useEffect, useState } from "react";
+
 const Contract = () => {
-  return <></>;
+  const { submitInfo } = useContext(ApiContext);
+  const { values } = useFormikContext<SubmitInfoRequestBody>();
+  const [pdfURL, setPdfURL] = useState("");
+  const getCurrentDate = () => {
+    const today = new Date();
+    return today.toLocaleDateString();
+  };
+  async function fetchToAPI() {
+    const extendedValues = values;
+    extendedValues.currentDate = getCurrentDate();
+    const file = await submitInfo(extendedValues);
+    setPdfURL(window.URL.createObjectURL(file));
+  }
+  useEffect(() => {
+    fetchToAPI();
+  }, []);
+  return <iframe src={pdfURL} height={1000} width={700}></iframe>;
 };
 
 export default Contract;

@@ -6,6 +6,7 @@ interface NipInfoRequestBody {
 }
 
 export interface SubmitInfoRequestBody {
+  currentDate: string;
   accountNumber: string;
   buildingNumber: string;
   city: string;
@@ -61,7 +62,7 @@ const getNipInfo = async (
 };
 const submitInfo = async (
   requestBody: SubmitInfoRequestBody
-): Promise<string> => {
+): Promise<Blob> => {
   const r = await fetch(`${submitURL}`, {
     method: "POST",
     headers: {
@@ -69,7 +70,7 @@ const submitInfo = async (
     },
     body: JSON.stringify(requestBody),
   });
-  const responseJson = await r.text();
+  const responseJson = await r.blob();
   return responseJson;
 };
 const getSupplierInfo = async (): Promise<string[]> => {

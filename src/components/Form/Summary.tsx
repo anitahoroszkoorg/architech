@@ -6,47 +6,23 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Contract from "components/Contract";
-import { ApiContext, SubmitInfoRequestBody } from "hooks/ApiContext";
-import { useContext } from "react";
-import { useFormikContext } from "formik";
 
 const useStyles = makeStyles({
   pdf: {
-    backgroundColor: "#F1F1F1",
-    height: 600,
-    width: 400,
-    textAlign: "center",
-    lineHeight: 35,
-  },
-  pdfTxt: {
-    padding: 20,
+    height: 1200,
+    width: 900,
   },
 });
 function DesktopSummary() {
   const classes = useStyles();
-  const { submitInfo } = useContext(ApiContext);
-  const { values } = useFormikContext<SubmitInfoRequestBody>();
-  console.log("przed");
-  console.log(values);
   return (
     <Grid container>
-      <Contract />
-
-      <button
-        onClick={async () => {
-          const r = await submitInfo(values);
-          console.log("tutaj");
-          console.log(r);
-        }}
-      >
-        test
-      </button>
-      <Grid item xs={10} className={classes.pdfTxt}>
+      <Grid item xs={10}>
         <Typography
           variant="h5"
           gutterBottom
           component="div"
-          sx={{ color: "primary.main" }}
+          sx={{ color: "primary.main", marginTop: 2 }}
         >
           Thank you!
         </Typography>
@@ -56,14 +32,16 @@ function DesktopSummary() {
           component="div"
           sx={{ color: "primary.main" }}
         >
-          Your questionnaire data has been sent for verification
+          Your questionnaire data has been sent for verification.
         </Typography>
         <Link to="/" style={{ textDecorationLine: "underline" }}>
           <Typography variant="body1" gutterBottom component="div">
-            Click here to go back to main page
+            Click here to go back to main page.
           </Typography>
         </Link>
-        <div className={classes.pdf}></div>
+        <div className={classes.pdf}>
+          <Contract />
+        </div>
       </Grid>
     </Grid>
   );
