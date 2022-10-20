@@ -3,10 +3,11 @@ import { Formik } from "formik";
 import RemainingInfo from "./RemainingInfo";
 import { Grid } from "@mui/material";
 import Documents from "./Documents";
-import Summary from "./Summary";
+import ContractPage from "./ContractPage";
 import PrimaryInfo from "./PrimaryInfo";
 import formValidationSchema from "Validation/formValidationSchema";
 import { FormContext } from "hooks/FormContext";
+import Verify from "./Summary";
 
 interface IProps {
   step: number;
@@ -27,7 +28,9 @@ export const CurrentForm = ({ step }: IProps): JSX.Element => {
     case 3:
       return <Documents />;
     case 4:
-      return <Summary />;
+      return <Verify />;
+    case 5:
+      return <ContractPage />;
     default:
       return <></>;
   }

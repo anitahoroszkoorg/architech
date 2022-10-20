@@ -13,9 +13,9 @@ function ButtonContainer() {
 
   const { validateForm, setFieldTouched } = useFormikContext();
 
-  const shouldShowBackButton = () => step > 1 && step < 4;
+  const shouldShowBackButton = () => step > 1 && step <= 5;
 
-  const shouldShowNextButton = () => step < 4;
+  const shouldShowNextButton = () => step < 5;
 
   const changeStep = (stepChange: number) => {
     setStep(step + stepChange);
