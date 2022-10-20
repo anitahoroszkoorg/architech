@@ -9,14 +9,11 @@ export default function SelectTextField() {
   const [field, meta] = useField("supplierCategory");
   const [categories, setCategories] = useState<string[]>([]);
   const { getSupplierInfo } = useContext(ApiContext);
-
-  console.log(field);
   useEffect(() => {
     async function fetchMyAPI() {
       const data = await getSupplierInfo();
       setCategories(data);
     }
-
     fetchMyAPI();
   }, []);
   return (

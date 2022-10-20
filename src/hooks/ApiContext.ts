@@ -1,8 +1,34 @@
 import { createContext } from "react";
-import { baseURL } from "config";
+import { baseURL, submitURL } from "config";
 
 interface NipInfoRequestBody {
   nip: string;
+}
+
+export interface SubmitInfoRequestBody {
+  currentDate: string;
+  accountNumber: string;
+  buildingNumber: string;
+  city: string;
+  companyName: string;
+  contactEmail: string;
+  contactName: string;
+  contactPhoneNumber: string;
+  contactPosition: string;
+  departments: string;
+  email: string;
+  employeesAmount: string;
+  equity: string;
+  foundingYear: string;
+  nip: string;
+  phoneNumber: string;
+  regon: string;
+  service: string;
+  street: string;
+  sumOfSales: string;
+  supplierCategory: string;
+  taxPayer: string;
+  zipCode: string;
 }
 
 export interface NipInfoResponse {
@@ -34,6 +60,18 @@ const getNipInfo = async (
   const responseJson = await r.json();
   return responseJson;
 };
+const submitInfo = async (
+  requestBody: SubmitInfoRequestBody
+): Promise<Blob> => {
+  const r = await fetch(`${submitURL}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  });
+  return await r.blob();
+};
 const getSupplierInfo = async (): Promise<string[]> => {
   const r = await fetch(`${baseURL}/supplier/`, {
     method: "GET",
@@ -41,8 +79,10 @@ const getSupplierInfo = async (): Promise<string[]> => {
   const responseJson = await r.json();
   return responseJson;
 };
+
 export const context = {
   getSupplierInfo: getSupplierInfo,
   getNipInfo: getNipInfo,
+  submitInfo: submitInfo,
 };
 export const ApiContext = createContext(context);

@@ -69,7 +69,6 @@ function FormContainer() {
           }}
           onSubmit={(values) => {
             console.log(values);
-            //temporary submit method
           }}
         >
           {() => (
