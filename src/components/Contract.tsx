@@ -10,14 +10,14 @@ const Contract = () => {
     const today = new Date();
     return today.toLocaleDateString();
   };
-  async function fetchToAPI() {
+  async function sendFormData() {
     const extendedValues = values;
     extendedValues.currentDate = getCurrentDate();
     const file = await submitInfo(extendedValues);
     setPdfURL(window.URL.createObjectURL(file));
   }
   useEffect(() => {
-    fetchToAPI();
+    sendFormData();
   }, []);
   return <iframe src={pdfURL} height={1000} width={700}></iframe>;
 };

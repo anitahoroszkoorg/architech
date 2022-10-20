@@ -70,8 +70,7 @@ const submitInfo = async (
     },
     body: JSON.stringify(requestBody),
   });
-  const responseJson = await r.blob();
-  return responseJson;
+  return await r.blob();
 };
 const getSupplierInfo = async (): Promise<string[]> => {
   const r = await fetch(`${baseURL}/supplier/`, {
