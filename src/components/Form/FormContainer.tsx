@@ -7,7 +7,7 @@ import ContractPage from "./ContractPage";
 import PrimaryInfo from "./PrimaryInfo";
 import formValidationSchema from "Validation/formValidationSchema";
 import { FormContext } from "hooks/FormContext";
-import Verify from "./Summary";
+import Summary from "./Summary";
 
 interface IProps {
   step: number;
@@ -28,7 +28,7 @@ export const CurrentForm = ({ step }: IProps): JSX.Element => {
     case 3:
       return <Documents />;
     case 4:
-      return <Verify />;
+      return <Summary />;
     case 5:
       return <ContractPage />;
     default:

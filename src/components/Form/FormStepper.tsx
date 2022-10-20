@@ -10,7 +10,7 @@ const stepNames = [
   "Remainig information",
   "Documents",
   "Summary",
-  "Contract"
+  "Contract",
 ];
 
 export default function FormStepper() {
