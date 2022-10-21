@@ -7,6 +7,7 @@ import Summary from "./Summary";
 import PrimaryInfo from "./PrimaryInfo";
 import formValidationSchema from "Validation/formValidationSchema";
 import { FormContext } from "hooks/FormContext";
+import ThankYou from "./ThankYou";
 
 interface IProps {
   step: number;
@@ -28,6 +29,8 @@ export const CurrentForm = ({ step }: IProps): JSX.Element => {
       return <Documents />;
     case 4:
       return <Summary />;
+    case 5: 
+      return <ThankYou/>
     default:
       return <></>;
   }
