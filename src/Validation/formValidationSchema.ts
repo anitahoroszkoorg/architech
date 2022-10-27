@@ -5,6 +5,7 @@ const phoneRegex = RegExp(
 const zipRegex = RegExp(/(^\d{2}-\d{3}$)/);
 const onlyDigitRegex = RegExp(/^\d+$/);
 const onlyLettersRegex = RegExp(/^[a-zA-Z\s]*$/);
+const yearRegex = RegExp(/(?:(?:19|20)[0-2]{2})/);
 export const validateNip = (nip: string | undefined): boolean => {
   if (nip) {
     const nipArray = nip.split("").map((str) => Number(str));
@@ -32,7 +33,7 @@ const formValidationSchema = [
     email: Yup.string().email("Wrong email address").required("Required"),
 
     phoneNumber: Yup.string()
-      .matches(phoneRegex, "Wrong phone number format")
+      .matches(phoneRegex, "Please type in phone number without spaces")
       .required("Required"),
     street: Yup.string().min(3, "Wrong format").required("Required"),
 
@@ -51,18 +52,13 @@ const formValidationSchema = [
       .min(3, "Must contain at least 3 or more characters")
       .required("Wymagane"),
     contactPhoneNumber: Yup.string()
-      .matches(phoneRegex, "Wrong phone number format")
+      .matches(phoneRegex, "Please type in phone number without spaces")
       .required("Required"),
     contactEmail: Yup.string()
       .email("Wrong email address")
       .required("Required"),
   }),
   Yup.object({
-    accountNumber: Yup.string()
-      .min(26, "Account number is too short")
-      .max(26, "Account number is too long")
-      .matches(onlyDigitRegex, "Must contain digits only")
-      .required("Required"),
     regon: Yup.string()
       .min(9, "REGON number is too short")
       .max(9, "REGON number is too long")
@@ -73,7 +69,7 @@ const formValidationSchema = [
       .min(3, "Must contain at least 3 or more characters")
       .required("Required"),
     foundingYear: Yup.string()
-      .matches(onlyDigitRegex, "Must contain digits only")
+      .matches(yearRegex, "Please provide a year between 1900-2022")
       .min(4, "Must contain 4 characters")
       .required("Required"),
     supplierCategory: Yup.string().required("Required"),
@@ -81,10 +77,7 @@ const formValidationSchema = [
       .matches(onlyDigitRegex, "Must contain digits only")
       .min(1, "Wrong format")
       .required("Required"),
-    sumOfSales: Yup.string()
-      .matches(onlyDigitRegex, "Must contain digits only")
-      .min(3, "Wrong format")
-      .required("Required"),
+    sumOfSales: Yup.string().required("Required"),
     departments: Yup.string()
       .matches(onlyLettersRegex, "Text contains numbers")
       .min(3, "Must contain at least 3 or more characters")
@@ -93,10 +86,7 @@ const formValidationSchema = [
       .min(3, "Wrong format")
       .matches(onlyLettersRegex, "Text contains numbers")
       .required("Required"),
-    equity: Yup.string()
-      .matches(onlyDigitRegex, "Must contain digits only")
-      .min(4, "Must contain 4 or more characters")
-      .required("Required"),
+    equity: Yup.string().required("Required"),
   }),
 ];
 
