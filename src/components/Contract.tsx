@@ -2,14 +2,18 @@ import { useFormikContext } from "formik";
 import { ApiContext, SubmitInfoRequestBody } from "hooks/ApiContext";
 import { useContext, useEffect, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
-import { Button, Grid, Typography, Skeleton } from "@mui/material";
+import {Grid, Typography, Skeleton } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
+import { IconButton } from "@material-ui/core";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const useStyles = makeStyles({
   pdf: {
     height: 800,
-    width: "550",
-    borderWidth: "1px",
+    width: "600",
+    borderWidth: "0.2px",
+    borderColor: "grey",
     borderStyle: "solid",
     overflowX: "hidden",
     margin: 20,
@@ -19,11 +23,13 @@ const useStyles = makeStyles({
 export const Contract = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
   const { submitInfo } = useContext(ApiContext);
   const { values } = useFormikContext<SubmitInfoRequestBody>();
   const [pdfURL, setPdfURL] = useState("");
   const classes = useStyles();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function onDocumentLoadSuccess({ numPages }: any) {
     setNumPages(numPages);
     setPageNumber(1);
@@ -50,43 +56,35 @@ export const Contract = () => {
     extendedValues.currentDate = getCurrentDate();
     const file = await submitInfo(extendedValues);
     setPdfURL(window.URL.createObjectURL(file));
+    setIsLoading(false);
   }
   useEffect(() => {
     sendFormData();
   }, []);
-  return (
+  return isLoading ? (
+    <Skeleton variant="rectangular" width={600} height={800} />
+  ) : (
     <>
       <div className={classes.pdf}>
         <Document
           file={pdfURL}
           onLoadSuccess={onDocumentLoadSuccess}
-          loading={<Skeleton variant="rectangular" width="100%" height={800} />}
+          loading={<></>}
         >
-          <Page pageNumber={pageNumber} renderMode="canvas" height={900} />
+          <Page pageNumber={pageNumber} height={900} />
         </Document>
       </div>
-      <Grid container justifyContent="flex-end">
-        <Grid item xs={5}>
-          <Typography variant="overline">
-            Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
-          </Typography>
-        </Grid>
-
+      <Grid container justifyContent="center">
         <Grid item xs={12}>
-          <Button
-            variant="outlined"
-            disabled={pageNumber <= 1}
-            onClick={previousPage}
-          >
-            Previous page
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={nextPage}
-            disabled={pageNumber > 2}
-          >
-            Next page
-          </Button>
+          <Typography variant="overline">
+            <IconButton onClick={previousPage} disabled={pageNumber <= 1}>
+              <ArrowBackIosNewIcon />
+            </IconButton>
+            Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
+            <IconButton onClick={nextPage} disabled={pageNumber > 2}>
+              <ArrowForwardIosIcon />
+            </IconButton>
+          </Typography>
         </Grid>
       </Grid>
     </>
