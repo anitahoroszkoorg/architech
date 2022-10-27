@@ -60,7 +60,7 @@ export const Contract = () => {
         <Document
           file={pdfURL}
           onLoadSuccess={onDocumentLoadSuccess}
-          loading={<Skeleton variant="rectangular" width="100%" height={800}/>}
+          loading={<Skeleton variant="rectangular" width="100%" height={800} />}
         >
           <Page pageNumber={pageNumber} renderMode="canvas" height={900} />
         </Document>
