@@ -28,6 +28,16 @@ const theme = createTheme({
           },
           borderRadius: 70,
         },
+        outlined: {
+          backgroundColor: "#FFFFFF",
+          color: "#99c24d",
+          fontSize: "0.75rem",
+          "&:hover": {
+            backgroundColor: "info.main",
+          },
+          borderRadius: 70,
+          marginRight: 15,
+        },
       },
     },
     MuiBottomNavigation: {
