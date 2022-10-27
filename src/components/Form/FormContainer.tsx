@@ -29,8 +29,8 @@ export const CurrentForm = ({ step }: IProps): JSX.Element => {
       return <Documents />;
     case 4:
       return <Summary />;
-    case 5: 
-      return <ThankYou/>
+    case 5:
+      return <ThankYou />;
     default:
       return <></>;
   }

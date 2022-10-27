@@ -1,8 +1,8 @@
 import { useFormikContext } from "formik";
 import { ApiContext, SubmitInfoRequestBody } from "hooks/ApiContext";
 import { useContext, useEffect, useState } from "react";
-import { Document, Page} from "react-pdf/dist/esm/entry.webpack";
-import { Button, Grid, Typography } from "@mui/material";
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+import { Button, Grid, Typography, Skeleton } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
@@ -11,25 +11,22 @@ const useStyles = makeStyles({
     width: "550",
     borderWidth: "1px",
     borderStyle: "solid",
-    overflow: "hidden",
+    overflowX: "hidden",
     margin: 20,
   },
 });
 
 export const Contract = () => {
-  const [numPages, setNumPages] = useState(0);
+  const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const { submitInfo } = useContext(ApiContext);
   const { values } = useFormikContext<SubmitInfoRequestBody>();
   const [pdfURL, setPdfURL] = useState("");
   const classes = useStyles();
 
-  function onDocumentLoadSuccess({ numPages }) {
+  function onDocumentLoadSuccess({ numPages }: any) {
     setNumPages(numPages);
     setPageNumber(1);
-  }
-  function onDocumentLoadProgress() {
-    return <div>please wait</div>;
   }
 
   function changePage(offset: number) {
@@ -63,8 +60,7 @@ export const Contract = () => {
         <Document
           file={pdfURL}
           onLoadSuccess={onDocumentLoadSuccess}
-          onLoadProgress={onDocumentLoadProgress}
-          renderMode="canvas"
+          loading={<Skeleton variant="rectangular" width="100%" height={800} />}
         >
           <Page pageNumber={pageNumber} renderMode="canvas" height={900} />
         </Document>
