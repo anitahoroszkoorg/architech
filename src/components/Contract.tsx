@@ -11,7 +11,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const useStyles = makeStyles({
   pdf: {
     height: 800,
-    width: "600",
+    width: 600,
     borderWidth: "0.2px",
     borderColor: "grey",
     borderStyle: "solid",
@@ -62,7 +62,8 @@ export const Contract = () => {
     sendFormData();
   }, []);
   return isLoading ? (
-    <Skeleton variant="rectangular" width={600} height={800} />
+    <div className={classes.pdf}> <Skeleton variant="rectangular" width={600} height={800} /></div>
+
   ) : (
     <>
       <div className={classes.pdf}>
