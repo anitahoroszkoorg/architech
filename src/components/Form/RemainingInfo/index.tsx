@@ -1,7 +1,10 @@
 import { Grid, Typography } from "@mui/material";
 import WhiteContainer from "containers/WhiteContainer";
 import FormikTextField from "../FormikTextField";
-import SelectTextField from "./SelectField";
+import EquitySelectField from "./EquitySelectField";
+import SalesSelectField from "./SalesSelectField";
+import SupplierSelectField from "./SupplierSelectField";
+import SelectTextField from "./SupplierSelectField";
 
 const RemainingInfo = () => {
   return (
@@ -19,10 +22,7 @@ const RemainingInfo = () => {
           <FormikTextField name="employeesAmount" label="Amount of employees" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField
-            name="sumOfSales"
-            label="Combined sales of the last 3 years"
-          />
+          <SalesSelectField />
         </Grid>
         <Grid item md={6}>
           <FormikTextField name="departments" label="Departments" />
@@ -31,11 +31,9 @@ const RemainingInfo = () => {
           <FormikTextField name="service" label="Offered range of services" />
         </Grid>
         <Grid item md={6}>
-          <FormikTextField name="equity" label="Equity" />
+          <EquitySelectField />
         </Grid>
-        <Grid item md={6}>
-          <FormikTextField name="accountNumber" label="Bank account number" />
-        </Grid>
+
         <Grid item md={6}>
           <FormikTextField name="regon" label="REGON" />
         </Grid>
@@ -46,7 +44,7 @@ const RemainingInfo = () => {
           <FormikTextField name="foundingYear" label="Founding year" />
         </Grid>
         <Grid item md={6} xs={12}>
-          <SelectTextField />
+          <SupplierSelectField />
         </Grid>
       </Grid>
     </WhiteContainer>

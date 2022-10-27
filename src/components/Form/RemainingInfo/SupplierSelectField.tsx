@@ -5,7 +5,7 @@ import { useField } from "formik";
 import { FormHelperText } from "@mui/material";
 import { ApiContext } from "hooks/ApiContext";
 
-export default function SelectTextField() {
+export default function SupplierSelectField() {
   const [field, meta] = useField("supplierCategory");
   const [categories, setCategories] = useState<string[]>([]);
   const { getSupplierInfo } = useContext(ApiContext);
