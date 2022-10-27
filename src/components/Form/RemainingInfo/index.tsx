@@ -4,7 +4,6 @@ import FormikTextField from "../FormikTextField";
 import EquitySelectField from "./EquitySelectField";
 import SalesSelectField from "./SalesSelectField";
 import SupplierSelectField from "./SupplierSelectField";
-import SelectTextField from "./SupplierSelectField";
 
 const RemainingInfo = () => {
   return (
