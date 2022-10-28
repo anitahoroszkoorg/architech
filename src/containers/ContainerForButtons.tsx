@@ -9,14 +9,14 @@ interface IProps {
 function ButtonGridSmall({ children }: IProps) {
   return (
     <Grid container xs={12} justifyContent="center" sx={{ mt: 3 }}>
-      {children} small
+      {children}
     </Grid>
   );
 }
 function ButtonGridLarge({ children }: IProps) {
   return (
     <Grid container xs={11} justifyContent="flex-end" sx={{ mt: 3 }}>
-      {children} large
+      {children}
     </Grid>
   );
 }
