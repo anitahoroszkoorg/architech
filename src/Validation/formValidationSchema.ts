@@ -58,11 +58,6 @@ const formValidationSchema = [
       .required("Required"),
   }),
   Yup.object({
-    accountNumber: Yup.string()
-      .min(26, "Account number is too short")
-      .max(26, "Account number is too long")
-      .matches(onlyDigitRegex, "Must contain digits only")
-      .required("Required"),
     regon: Yup.string()
       .min(9, "REGON number is too short")
       .max(9, "REGON number is too long")
@@ -81,10 +76,7 @@ const formValidationSchema = [
       .matches(onlyDigitRegex, "Must contain digits only")
       .min(1, "Wrong format")
       .required("Required"),
-    sumOfSales: Yup.string()
-      .matches(onlyDigitRegex, "Must contain digits only")
-      .min(3, "Wrong format")
-      .required("Required"),
+    sumOfSales: Yup.string().required("Required"),
     departments: Yup.string()
       .matches(onlyLettersRegex, "Text contains numbers")
       .min(3, "Must contain at least 3 or more characters")
@@ -93,10 +85,7 @@ const formValidationSchema = [
       .min(3, "Wrong format")
       .matches(onlyLettersRegex, "Text contains numbers")
       .required("Required"),
-    equity: Yup.string()
-      .matches(onlyDigitRegex, "Must contain digits only")
-      .min(4, "Must contain 4 or more characters")
-      .required("Required"),
+    equity: Yup.string().required("Required"),
   }),
 ];
 

@@ -43,12 +43,14 @@ describe("My First Test", () => {
     cy.get('[id="contactPosition"]').type("contact person position");
     cy.get('[id="contactEmail"]').type("contactemail@email.com");
     cy.contains("next").click();
-    cy.get('[id="employeesAmount"]').type("1000");
-    cy.get('[id="sumOfSales"]').type("200000");
+    cy.get('[id="employeesAmount"]').parent().type("1000");
+    cy.get('[id="sumOfSales"]').click();
+    cy.contains("1000 PLN - 10 000 PLN").click();
     cy.get('[id="departments"]').type("lorem ipsum");
     cy.get('[id="service"]').type("lorem ipsum");
-    cy.get('[id="equity"]').type("50000");
-    cy.get('[id="accountNumber"]').type("12345678901234567890123456");
+    cy.get('[id="equity"]');
+    cy.get('[id="equity"]').click();
+    cy.contains("10 000 PLN - 100 000 PLN").click();
     cy.get('[id="taxPayer"]').type("lorem ipsum");
     cy.get('[id="foundingYear"]').type("1999");
     cy.get('[id="supplierCategory"]').click();
@@ -65,3 +67,4 @@ describe("My First Test", () => {
     cy.get('[id="city"]').should("be.visible").should("have.value", "Poznań");
   });
 });
+
