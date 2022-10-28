@@ -10,12 +10,11 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const useStyles = makeStyles({
   pdf: {
-    height: 800,
-    width: 600,
+    height: 1000,
+    width: 800,
     borderWidth: "0.2px",
     borderColor: "grey",
     borderStyle: "solid",
-    overflowX: "hidden",
     margin: 20,
   },
 });
@@ -63,8 +62,7 @@ export const Contract = () => {
   }, []);
   return isLoading ? (
     <div className={classes.pdf}>
-      {" "}
-      <Skeleton variant="rectangular" width={600} height={800} />
+      <Skeleton variant="rectangular" width={800} height={1000} />
     </div>
   ) : (
     <>
@@ -74,11 +72,11 @@ export const Contract = () => {
           onLoadSuccess={onDocumentLoadSuccess}
           loading={<></>}
         >
-          <Page pageNumber={pageNumber} height={900} loading={<></>} />
+          <Page pageNumber={pageNumber} height={1000} loading={<></>} />
         </Document>
       </div>
-      <Grid container justifyContent="center">
-        <Grid item xs={12}>
+      <Grid container justifyContent="flex-start">
+        <Grid item xs={3}>
           <Typography variant="overline">
             <IconButton onClick={previousPage} disabled={pageNumber <= 1}>
               <ArrowBackIosNewIcon />
