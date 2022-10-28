@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import WhiteContainer from "containers/WhiteContainer";
 import Footer from "components/Footer/Footer";
-import Contract from "components/Contract";
+import Contract from "components/Form/Contract";
 
 function Summary() {
   return (

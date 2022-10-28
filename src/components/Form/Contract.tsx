@@ -2,7 +2,7 @@ import { useFormikContext } from "formik";
 import { ApiContext, SubmitInfoRequestBody } from "hooks/ApiContext";
 import { useContext, useEffect, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
-import {Grid, Typography, Skeleton } from "@mui/material";
+import { Grid, Typography, Skeleton } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import { IconButton } from "@material-ui/core";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -62,8 +62,10 @@ export const Contract = () => {
     sendFormData();
   }, []);
   return isLoading ? (
-    <div className={classes.pdf}> <Skeleton variant="rectangular" width={600} height={800} /></div>
-
+    <div className={classes.pdf}>
+      {" "}
+      <Skeleton variant="rectangular" width={600} height={800} />
+    </div>
   ) : (
     <>
       <div className={classes.pdf}>
@@ -72,7 +74,7 @@ export const Contract = () => {
           onLoadSuccess={onDocumentLoadSuccess}
           loading={<></>}
         >
-          <Page pageNumber={pageNumber} height={900} />
+          <Page pageNumber={pageNumber} height={900} loading={<></>} />
         </Document>
       </div>
       <Grid container justifyContent="center">
