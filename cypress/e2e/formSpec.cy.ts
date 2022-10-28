@@ -48,7 +48,6 @@ describe("My First Test", () => {
     cy.contains("1000 PLN - 10 000 PLN").click();
     cy.get('[id="departments"]').type("lorem ipsum");
     cy.get('[id="service"]').type("lorem ipsum");
-    cy.get('[id="equity"]');
     cy.get('[id="equity"]').click();
     cy.contains("10 000 PLN - 100 000 PLN").click();
     cy.get('[id="taxPayer"]').type("lorem ipsum");
@@ -67,4 +66,3 @@ describe("My First Test", () => {
     cy.get('[id="city"]').should("be.visible").should("have.value", "Poznań");
   });
 });
-

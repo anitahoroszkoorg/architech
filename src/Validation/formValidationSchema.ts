@@ -5,6 +5,7 @@ const phoneRegex = RegExp(
 const zipRegex = RegExp(/(^\d{2}-\d{3}$)/);
 const onlyDigitRegex = RegExp(/^\d+$/);
 const onlyLettersRegex = RegExp(/^[a-zA-Z\s]*$/);
+const yearRegex = RegExp(/(?:(?:19|20)[0-2]{2})/);
 export const validateNip = (nip: string | undefined): boolean => {
   if (nip) {
     const nipArray = nip.split("").map((str) => Number(str));
@@ -32,7 +33,7 @@ const formValidationSchema = [
     email: Yup.string().email("Wrong email address").required("Required"),
 
     phoneNumber: Yup.string()
-      .matches(phoneRegex, "Wrong phone number format")
+      .matches(phoneRegex, "Please type in phone number without spaces")
       .required("Required"),
     street: Yup.string().min(3, "Wrong format").required("Required"),
 
@@ -51,7 +52,7 @@ const formValidationSchema = [
       .min(3, "Must contain at least 3 or more characters")
       .required("Wymagane"),
     contactPhoneNumber: Yup.string()
-      .matches(phoneRegex, "Wrong phone number format")
+      .matches(phoneRegex, "Please type in phone number without spaces")
       .required("Required"),
     contactEmail: Yup.string()
       .email("Wrong email address")
@@ -68,7 +69,7 @@ const formValidationSchema = [
       .min(3, "Must contain at least 3 or more characters")
       .required("Required"),
     foundingYear: Yup.string()
-      .matches(onlyDigitRegex, "Must contain digits only")
+      .matches(yearRegex, "Please provide a year between 1900-2022")
       .min(4, "Must contain 4 characters")
       .required("Required"),
     supplierCategory: Yup.string().required("Required"),
