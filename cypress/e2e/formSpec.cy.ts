@@ -67,7 +67,3 @@ describe("My First Test", () => {
     cy.get('[id="city"]').should("be.visible").should("have.value", "Poznań");
   });
 });
-
-
-cy.get('[id="equity"]').click();
-    cy.contains("10 000 PLN - 100 000 PLN").click();
