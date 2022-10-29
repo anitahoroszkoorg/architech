@@ -20,7 +20,7 @@ const RemainingInfo = () => {
         <Grid item md={6}>
           <FormikTextField name="employeesAmount" label="Amount of employees" />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} xs={12}>
           <SalesSelectField />
         </Grid>
         <Grid item md={6}>
@@ -29,10 +29,9 @@ const RemainingInfo = () => {
         <Grid item md={6}>
           <FormikTextField name="service" label="Offered range of services" />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} xs={12}>
           <EquitySelectField />
         </Grid>
-
         <Grid item md={6}>
           <FormikTextField name="regon" label="REGON" />
         </Grid>

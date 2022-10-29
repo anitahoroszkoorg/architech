@@ -5,7 +5,11 @@ const phoneRegex = RegExp(
 const zipRegex = RegExp(/(^\d{2}-\d{3}$)/);
 const onlyDigitRegex = RegExp(/^\d+$/);
 const onlyLettersRegex = RegExp(/^[a-zA-Z\s]*$/);
-const yearRegex = RegExp(/(?:(?:19|20)[0-2]{2})/);
+
+const getCurrentYear = () => {
+  return new Date().getFullYear();
+};
+
 export const validateNip = (nip: string | undefined): boolean => {
   if (nip) {
     const nipArray = nip.split("").map((str) => Number(str));
@@ -33,13 +37,13 @@ const formValidationSchema = [
     email: Yup.string().email("Wrong email address").required("Required"),
 
     phoneNumber: Yup.string()
-      .matches(phoneRegex, "Please type in phone number without spaces")
+      .matches(phoneRegex, "Enter a 9 digit number")
       .required("Required"),
     street: Yup.string().min(3, "Wrong format").required("Required"),
 
-    city: Yup.string().min(3, "Wrong format ").required("Required"),
+    city: Yup.string().min(3, "Wrong format").required("Required"),
 
-    buildingNumber: Yup.string().min(1, "Wrong format ").required("Required"),
+    buildingNumber: Yup.string().min(1, "Wrong format").required("Required"),
     zipCode: Yup.string()
       .matches(zipRegex, "Wrong zip code format")
       .required("Required"),
@@ -52,7 +56,7 @@ const formValidationSchema = [
       .min(3, "Must contain at least 3 or more characters")
       .required("Wymagane"),
     contactPhoneNumber: Yup.string()
-      .matches(phoneRegex, "Please type in phone number without spaces")
+      .matches(phoneRegex, "Enter a 9 digit number")
       .required("Required"),
     contactEmail: Yup.string()
       .email("Wrong email address")
@@ -68,9 +72,10 @@ const formValidationSchema = [
       .matches(onlyLettersRegex, "Text contains numbers")
       .min(3, "Must contain at least 3 or more characters")
       .required("Required"),
-    foundingYear: Yup.string()
-      .matches(yearRegex, "Please provide a year between 1900-2022")
-      .min(4, "Must contain 4 characters")
+    foundingYear: Yup.number()
+      .integer()
+      .min(1900, "Please type in year greater than 1900")
+      .max(getCurrentYear(), "Date cannot be greater than the current year")
       .required("Required"),
     supplierCategory: Yup.string().required("Required"),
     employeesAmount: Yup.string()
