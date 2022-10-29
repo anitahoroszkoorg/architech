@@ -17,7 +17,7 @@ const RemainingInfo = () => {
         Remaining information
       </Typography>
       <Grid container>
-        <Grid item md={6}>
+        <Grid item md={12} xs={12}>
           <FormikTextField name="employeesAmount" label="Amount of employees" />
         </Grid>
         <Grid item md={6} xs={12}>

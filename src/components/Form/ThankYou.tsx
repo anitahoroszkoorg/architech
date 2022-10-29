@@ -29,7 +29,7 @@ function ThankYou() {
                 Your questionnaire data has been sent for verification.
               </Typography>
               <Link to="/" style={{ textDecorationLine: "underline" }}>
-                <Typography variant="body1" gutterBottom component="div">
+                <Typography variant="body1" gutterBottom component="div" fontWeight="bold">
                   Click here to go back to main page.
                 </Typography>
               </Link>
